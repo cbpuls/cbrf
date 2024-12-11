@@ -19,6 +19,14 @@ module Cbrf
       @schema ||= doc.find("//xs:schema//xs:sequence/xs:element", "xs:http://www.w3.org/2001/XMLSchema").map { |node| node.attributes.to_h }
     end
 
+    def find(xpath)
+      doc.find(xpath).map do
+        _1.inject({}) do |hash, node|
+          hash.merge node.name => node.content
+        end
+      end
+    end
+
     # Return last update date
     #
     # @param
@@ -47,12 +55,12 @@ module Cbrf
 
     def licenses
       @xml = fetch('<EnumLicenses xmlns="http://web.cbr.ru/" />')
+      @data = find("//LIC")
+    end
 
-      @data = doc.find("//LIC").map do
-        _1.inject({}) do |hash, node|
-          hash.merge node.name => node.content
-        end
-      end
+    def regions
+      @xml = fetch('<EnumRegions xmlns="http://web.cbr.ru/" />')
+      @data = find("//ER")
     end
 
     # Return BIC credit organisations

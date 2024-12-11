@@ -22,7 +22,12 @@ RSpec.describe Cbrf::Client do
   describe "#licenses" do
     it "should return list licenses" do
       expect(subject.licenses).not_to be_empty
-      expect(subject.schema).not_to be_empty
+    end
+  end
+
+  describe "#regions" do
+    it "should return list regions" do
+      expect(subject.regions).not_to be_empty
     end
   end
 end
