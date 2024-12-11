@@ -7,7 +7,17 @@ require "libxml-ruby"
 
 module Cbrf
   class Client
-    attr_reader :raw_xml, :schema, :data
+    attr_reader :xml, :data
+
+    def url = URI("https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx")
+
+    def doc
+      @doc ||= LibXML::XML::Parser.string(xml).parse
+    end
+
+    def schema
+      @schema ||= doc.find("//xs:schema//xs:sequence/xs:element", "xs:http://www.w3.org/2001/XMLSchema").map { |node| node.attributes.to_h }
+    end
 
     # Return last update date
     #
@@ -35,13 +45,19 @@ module Cbrf
       DateTime.xmlschema xml.parse.last.content
     end
 
+    def licenses
+      @xml = fetch('<EnumLicenses xmlns="http://web.cbr.ru/" />')
+
+      @data = doc.find("//LIC").map do
+        _1.inject({}) do |hash, node|
+          hash.merge node.name => node.content
+        end
+      end
+    end
+
+    # Return BIC credit organisations
     def bics
       @xml = fetch('<EnumBIC xmlns="http://web.cbr.ru/" />')
-      doc = LibXML::XML::Parser.string(@xml).parse
-
-      @schema = doc.find("//xs:schema//xs:sequence/xs:element",
-                         "xs:http://www.w3.org/2001/XMLSchema")
-                   .map { _1.attributes.to_h }
 
       @data = doc.find("//diffgr:diffgram//BIC", "diffgr:urn:schemas-microsoft-com:xml-diffgram-v1").map do
         _1.inject({}) do |hash, node|
@@ -51,7 +67,6 @@ module Cbrf
     end
 
     def fetch(query)
-      url = URI("https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx")
       data = <<~XML
         <?xml version="1.0" encoding="utf-8"?>
         <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">

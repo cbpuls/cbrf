@@ -18,4 +18,11 @@ RSpec.describe Cbrf::Client do
       expect(subject.data.first.keys).to be == %w[BIC RC NM RB cregnr intCode RN]
     end
   end
+
+  describe "#licenses" do
+    it "should return list licenses" do
+      expect(subject.licenses).not_to be_empty
+      expect(subject.schema).not_to be_empty
+    end
+  end
 end
