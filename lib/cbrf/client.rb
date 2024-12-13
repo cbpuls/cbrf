@@ -66,12 +66,29 @@ module Cbrf
     # Return BIC credit organisations
     def bics
       @xml = fetch('<EnumBIC xmlns="http://web.cbr.ru/" />')
+      @data = find("//BIC")
+    end
 
-      @data = doc.find("//diffgr:diffgram//BIC", "diffgr:urn:schemas-microsoft-com:xml-diffgram-v1").map do
-        _1.inject({}) do |hash, node|
-          hash.merge(node.name => node.content)
-        end
-      end
+    def info(code)
+      @xml = fetch(
+        <<~XML
+          <CreditInfoByIntCode xmlns="http://web.cbr.ru/">
+            <InternalCode>#{code}</InternalCode>
+          </CreditInfoByIntCode>
+        XML
+      )
+      @data = find("//CO")
+    end
+
+    def search(name)
+      @xml = fetch(
+        <<~XML
+          <SearchByName xmlns="http://web.cbr.ru/">
+            <NamePart>#{name}</NamePart>
+          </SearchByName>
+        XML
+      )
+      @data = find("//EnumCredits")
     end
 
     def fetch(query)
@@ -83,6 +100,7 @@ module Cbrf
           </soap12:Body>
         </soap12:Envelope>
       XML
+
       headers = { "content-type": "application/soap+xml; charset=utf-8" }
       response = Net::HTTP.post(url, data, headers)
       response.body
