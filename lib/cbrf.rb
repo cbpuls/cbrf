@@ -2,9 +2,14 @@
 
 require_relative "cbrf/version"
 
-require_relative "cbrf/client"
+require "zeitwerk"
+loader = Zeitwerk::Loader.for_gem
+loader.collapse("#{__dir__}/cbrf/services")
+loader.setup
 
 module Cbrf
   class Error < StandardError; end
   # Your code goes here...
 end
+
+loader.eager_load # optionally
