@@ -106,4 +106,16 @@ module Cbrf
       response.body
     end
   end
+
+  def cards(id)
+    @xml = fetch(
+      <<~XML
+        <GeCards xmlns="http://web.cbr.ru/">
+          <InternalCode>#{id}</InternalCode>
+        </GeCards>
+      XML
+    )
+    puts doc
+    @data = find("//")
+  end
 end
