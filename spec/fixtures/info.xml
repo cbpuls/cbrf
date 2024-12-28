@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <CreditInfoByIntCodeResponse xmlns="http://web.cbr.ru/">
+      <CreditInfoByIntCodeResult>
+        <xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="CreditOrgInfo">
+          <xs:element name="CreditOrgInfo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+            <xs:complexType>
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="CO">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="RegNumber" msdata:Caption="Регистрационный номер КО" type="xs:short" minOccurs="0"/>
+                      <xs:element name="BIC" type="xs:string" minOccurs="0"/>
+                      <xs:element name="OrgName" type="xs:string" minOccurs="0"/>
+                      <xs:element name="OrgFullName" type="xs:string" minOccurs="0"/>
+                      <xs:element name="phones" type="xs:string" minOccurs="0"/>
+                      <xs:element name="DateKGRRegistration" msdata:Caption="Дата внесения в КГР" type="xs:dateTime" minOccurs="0"/>
+                      <xs:element name="MainRegNumber" msdata:Caption="Основной государственный регистрационный номер" type="xs:string" minOccurs="0"/>
+                      <xs:element name="MainDateReg" msdata:Caption="Дата присвоения государственного регистрационного номера" type="xs:dateTime" minOccurs="0"/>
+                      <xs:element name="UstavAdr" msdata:Caption="Адрес из устава" type="xs:string" minOccurs="0"/>
+                      <xs:element name="FactAdr" msdata:Caption="Адрес фактический" type="xs:string" minOccurs="0"/>
+                      <xs:element name="Director" msdata:Caption="Removed" type="xs:string" minOccurs="0"/>
+                      <xs:element name="UstMoney" msdata:Caption="Уставный капитал, руб." type="xs:double" minOccurs="0"/>
+                      <xs:element name="OrgStatus" msdata:Caption="Статус кредитной орг." type="xs:string" minOccurs="0"/>
+                      <xs:element name="cistate" msdata:Caption="код статуса кредитной орг." type="xs:short" minOccurs="0"/>
+                      <xs:element name="RegCode" msdata:Caption="вн. код региона" type="xs:short" minOccurs="0"/>
+                      <xs:element name="SSV_Date" msdata:Caption="Дата вынесения заключения (признак внесения КО в Систему страхования вкладов)" type="xs:dateTime" minOccurs="0"/>
+                      <xs:element name="cregnr" msdata:Caption="Регистрационный номер КО (строка с суфиксом)" type="xs:string" minOccurs="0"/>
+                      <xs:element name="encname" msdata:Caption="Фирменное наименование на английском языке" type="xs:string" minOccurs="0"/>
+                      <xs:element name="ruleactual" msdata:Caption="Дата согласования последней редакции устава" type="xs:dateTime" minOccurs="0"/>
+                      <xs:element name="cregorg" msdata:Caption="" type="xs:short" minOccurs="0"/>
+                      <xs:element name="cdmoney" msdata:Caption="дата изменения величины уставного капитала" type="xs:dateTime" minOccurs="0"/>
+                      <xs:element name="rulechange" msdata:Caption="тип изменения устава устава" type="xs:string" minOccurs="0"/>
+                      <xs:element name="ruledate" msdata:Caption="дата изменения редакции устава" type="xs:dateTime" minOccurs="0"/>
+                      <xs:element name="cnin" msdata:Caption="документ ликвидации (состояния банка)" type="xs:string" minOccurs="0"/>
+                      <xs:element name="cdin" msdata:Caption="дата документа ликвидации" type="xs:dateTime" minOccurs="0"/>
+                      <xs:element name="licwithdnum" msdata:Caption="документ отзыва лицензий (состояния банка)" type="xs:string" minOccurs="0"/>
+                      <xs:element name="licwithddate" msdata:Caption="дата документа отзыва лицензий" type="xs:dateTime" minOccurs="0"/>
+                      <xs:element name="DK" msdata:Caption="" type="xs:string" minOccurs="0"/>
+                      <xs:element name="qoffices" msdata:Caption="" type="xs:short" minOccurs="0"/>
+                      <xs:element name="qofficesfor" msdata:Caption="" type="xs:short" minOccurs="0"/>
+                      <xs:element name="qdopo" msdata:Caption="" type="xs:short" minOccurs="0"/>
+                      <xs:element name="qopc" msdata:Caption="" type="xs:short" minOccurs="0"/>
+                      <xs:element name="qreprrus" msdata:Caption="" type="xs:short" minOccurs="0"/>
+                      <xs:element name="qreprfor" msdata:Caption="" type="xs:short" minOccurs="0"/>
+                      <xs:element name="qreprcis" msdata:Caption="" type="xs:short" minOccurs="0"/>
+                      <xs:element name="cregnum15" msdata:Caption="ОГРН" type="xs:long" minOccurs="0"/>
+                      <xs:element name="boardmembers" msdata:Caption="" type="xs:string" minOccurs="0"/>
+                      <xs:element name="boardhead" msdata:Caption="" type="xs:string" minOccurs="0"/>
+                      <xs:element name="USS" msdata:Caption="Участие в системе страхования вкладов" type="xs:short" minOccurs="0"/>
+                      <xs:element name="ckko" msdata:Caption="" type="xs:short" minOccurs="0"/>
+                      <xs:element name="copo" msdata:Caption="" type="xs:short" minOccurs="0"/>
+                      <xs:element name="cppko" msdata:Caption="" type="xs:short" minOccurs="0"/>
+                      <xs:element name="cobmp" msdata:Caption="" type="xs:short" minOccurs="0"/>
+                      <xs:element name="csname" msdata:Caption="Краткое название организации" type="xs:string" minOccurs="0"/>
+                      <xs:element name="IsLicensesFileExist" msdata:Caption="Существует файл с описанием лицензий КО" type="xs:short" minOccurs="0"/>
+                      <xs:element name="IsRBFileExist" msdata:Caption="Существует файл 'Лица, под контролем либо значительным влиянием которых находится кредитная организация'" type="xs:short" minOccurs="0"/>
+                      <xs:element name="PKLFile" msdata:Caption="Перечень лиц, контролирующих финансовую организацию (файл)" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="LIC">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="LCode" msdata:Caption="код статуса лицензии" type="xs:short" minOccurs="0"/>
+                      <xs:element name="LT" msdata:Caption="статус лицензии" type="xs:string" minOccurs="0"/>
+                      <xs:element name="LDate" msdata:Caption="Дата" type="xs:dateTime" minOccurs="0"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="RBFiles">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="id" type="xs:long" minOccurs="0"/>
+                      <xs:element name="filename" type="xs:string" minOccurs="0"/>
+                      <xs:element name="DTD" type="xs:string" minOccurs="0"/>
+                      <xs:element name="MsgSRC" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+        </xs:schema>
+        <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+          <CreditOrgInfo xmlns="">
+            <CO diffgr:id="CO1" msdata:rowOrder="0">
+              <RegNumber>1481</RegNumber>
+              <BIC>044525225</BIC>
+              <OrgName>СБЕРБАНК РОССИИ</OrgName>
+              <OrgFullName>Публичное акционерное общество "Сбербанк России"</OrgFullName>
+              <phones>+ 7 495 500-55-50, 900 (для мобильных устройств)</phones>
+              <DateKGRRegistration>1991-06-20T00:00:00+04:00</DateKGRRegistration>
+              <MainRegNumber>1027700132195</MainRegNumber>
+              <MainDateReg>2002-08-16T00:00:00+04:00</MainDateReg>
+              <UstavAdr>Российская Федерация, город Москва, улица Вавилова, дом 19</UstavAdr>
+              <FactAdr>117997,  г. Москва, ул. Вавилова, д.19</FactAdr>
+              <Director/>
+              <UstMoney>67760844000</UstMoney>
+              <OrgStatus>норм.</OrgStatus>
+              <cistate>1</cistate>
+              <RegCode>16</RegCode>
+              <SSV_Date>2004-12-29T00:00:00+03:00</SSV_Date>
+              <cregnr/>
+              <encname>Sberbank of Russia, Sberbank</encname>
+              <ruleactual>2023-06-13T00:00:00+03:00</ruleactual>
+              <cregorg>0</cregorg>
+              <cdmoney>2007-04-24T00:00:00+04:00</cdmoney>
+              <qoffices>86</qoffices>
+              <qofficesfor>0</qofficesfor>
+              <qdopo>11202</qdopo>
+              <qopc>0</qopc>
+              <qreprrus>0</qreprrus>
+              <qreprfor>1</qreprfor>
+              <qreprcis>0</qreprcis>
+              <cregnum15>1027700132195</cregnum15>
+              <USS>1</USS>
+              <ckko>0</ckko>
+              <copo>0</copo>
+              <cppko>326</cppko>
+              <cobmp>0</cobmp>
+              <csname>ПАО Сбербанк</csname>
+              <IsLicensesFileExist>1</IsLicensesFileExist>
+              <IsRBFileExist>0</IsRBFileExist>
+            </CO>
+            <LIC diffgr:id="LIC1" msdata:rowOrder="0">
+              <LCode>3</LCode>
+              <LT>Лицензия на привлечение во вклады и размещение драгоценных металлов</LT>
+              <LDate>2015-08-11T00:00:00+03:00</LDate>
+            </LIC>
+            <LIC diffgr:id="LIC2" msdata:rowOrder="1">
+              <LCode>7</LCode>
+              <LT>Генеральная лицензия на осуществление банковских операций</LT>
+              <LDate>2015-08-11T00:00:00+03:00</LDate>
+            </LIC>
+          </CreditOrgInfo>
+        </diffgr:diffgram>
+      </CreditInfoByIntCodeResult>
+    </CreditInfoByIntCodeResponse>
+  </soap:Body>
+</soap:Envelope>

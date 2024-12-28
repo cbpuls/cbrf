@@ -2,6 +2,8 @@
 
 require_relative "cbrf/version"
 
+require "stringio"
+require "ox"
 require "zeitwerk"
 loader = Zeitwerk::Loader.for_gem
 loader.collapse("#{__dir__}/cbrf/services")

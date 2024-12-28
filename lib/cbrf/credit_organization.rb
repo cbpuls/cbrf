@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "forwardable"
+
 module Cbrf
   class CreditOrganization
     extend Forwardable
@@ -8,32 +10,31 @@ module Cbrf
       @id = Id.new(id)
     end
 
-    def_delegator :@id, :bic, :internal_code, :registry_number
-    def_delegator self, :client
+    def_delegators :@id, :bic, :internal_code, :registry_number
 
     def info
-      client.call(:CreditInfoByIntCode, { InternalCode: })
+      Api.call(:CreditInfoByIntCode, { InternalCode: internal_code }).to_h
     end
 
     def info_short
-      client.call(:CreditInfoByRegCodeShort, { CredorgNumber: })
+      Api.call(:CreditInfoByRegCodeShort, { CredorgNumber: }).to_h
     end
 
     class << self
-      def client
-        Soap::Client.new("https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx")
-      end
-
       def last_update
-        client.call(:LastUpdate)
+        DateTime.xmlschema Api.call(:LastUpdate).value
       end
 
       def bics
-        client.call(:EnumBIC)
+        Api.call(:EnumBIC).to_h
       end
 
-      def licences
-        client.call(:EnumLicenses)
+      def licenses
+        Api.call(:EnumLicenses).to_h
+      end
+
+      def info(*codes)
+        Api.call(:CreditInfoByIntCodeEx, { InternalCodes: codes }).to_h
       end
     end
   end

@@ -5,6 +5,7 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in cbrf.gemspec
 gemspec
 
+gem "ox"
 gem "rake", "~> 13.0"
 
 group :development do
