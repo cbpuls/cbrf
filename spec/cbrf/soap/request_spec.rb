@@ -33,5 +33,22 @@ RSpec.describe Cbrf::Soap::Request do
         </soap12:Envelope>
       XML
     end
+    context "date" do
+      let(:name) { :Data101FNew }
+      let(:args) { { CredorgNumber: 1234, dt: Date.parse("2024-01-01") } }
+      it do
+        is_expected.to eq <<~XML
+          <?xml version="1.0" encoding="UTF-8"?>
+          <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+            <soap12:Body>
+              <Data101FNew xmlns="http://web.cbr.ru/">
+                <CredorgNumber>1234</CredorgNumber>
+                <dt>2024-01-01</dt>
+              </Data101FNew>
+            </soap12:Body>
+          </soap12:Envelope>
+        XML
+      end
+    end
   end
 end

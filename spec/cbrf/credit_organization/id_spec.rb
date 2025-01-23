@@ -17,15 +17,15 @@ RSpec.describe Cbrf::CreditOrganization::Id, with_banks: true do
     it { expect(id.internal_code).to eq(code) }
 
     context "from bic" do
-      let(:code) { sberbank[:bic] }
+      let(:code) { sber[:bic] }
 
-      it { expect(id.internal_code).to eq(sberbank[:internal_code]) }
+      it { expect(id.internal_code).to eq(sber[:internal_code]) }
     end
 
     context "from registry_number" do
-      let(:code) { sberbank[:registry_number] }
+      let(:code) { sber[:registry_number] }
 
-      it { expect(id.internal_code).to eq(sberbank[:internal_code]) }
+      it { expect(id.internal_code).to eq(sber[:internal_code]) }
     end
   end
 
@@ -35,15 +35,15 @@ RSpec.describe Cbrf::CreditOrganization::Id, with_banks: true do
     it { expect(id.registry_number).to eq(code) }
 
     context "from bic" do
-      let(:code) { sberbank[:bic] }
+      let(:code) { sber[:bic] }
 
-      it { expect(id.registry_number).to eq(sberbank[:registry_number]) }
+      it { expect(id.registry_number).to eq(sber[:registry_number]) }
     end
 
     context "from registry_number" do
-      let(:code) { sberbank[:internal_code] }
+      let(:code) { sber[:internal_code] }
 
-      it { expect(id.registry_number).to eq(sberbank[:registry_number]) }
+      it { expect(id.registry_number).to eq(sber[:registry_number]) }
     end
   end
 end

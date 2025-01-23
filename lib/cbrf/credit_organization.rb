@@ -16,8 +16,12 @@ module Cbrf
       Api.call(:CreditInfoByIntCode, { InternalCode: internal_code }).to_h
     end
 
-    def info_short
-      Api.call(:CreditInfoByRegCodeShort, { CredorgNumber: }).to_h
+    def note
+      Api.call(:CreditInfoByRegCodeShort, { CredorgNumber: registry_number }).to_h
+    end
+
+    def form(type)
+      Form.new(type, registry_number)
     end
 
     class << self

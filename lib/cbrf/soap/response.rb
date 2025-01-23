@@ -14,15 +14,16 @@ module Cbrf
         # @schema ||= Schema.new Ox.load(xml, mode: :hash)
       end
 
-      def diff
-        @diff ||= Ox.load(xml, mode: :hash_no_attrs)
-                    .dig(:"soap:Envelope", :"soap:Body", :"#{name}Response", :"#{name}Result", :"diffgr:diffgram")
+      def to_h
+        Ox.load(xml, mode: :hash_no_attrs)
       end
 
-      alias to_h diff
+      def diff
+        @diff ||= to_h.dig(:"soap:Envelope", :"soap:Body", :"#{name}Response", :"#{name}Result", :"diffgr:diffgram")
+      end
 
-      def value
-        Ox.load(xml, mode: :hash_no_attrs).dig(:"soap:Envelope", :"soap:Body", :"#{name}Response", :"#{name}Result")
+      def result
+        @result ||= to_h.dig(:"soap:Envelope", :"soap:Body", :"#{name}Response", :"#{name}Result")
       end
     end
   end
