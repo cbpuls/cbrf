@@ -11,6 +11,11 @@ RSpec.shared_context "banks", shared_context: :metadata do
   let(:vtb)  { Bank.new("044525187", 350_000_008, 1000) }
 end
 
+RSpec.shared_context "regions", shared_context: :metadata do
+  let(:moscow) { Cbrf::Region.new(16, "Москва") }
+  let(:saint_petersburg) { Cbrf::Region.new(3, "Санкт-Петербург") }
+end
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
@@ -23,4 +28,5 @@ RSpec.configure do |config|
   end
 
   config.include_context "banks", with_banks: true
+  config.include_context "regions", with_regions: true
 end

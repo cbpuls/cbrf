@@ -14,6 +14,10 @@ module Cbrf
         # @schema ||= Schema.new Ox.load(xml, mode: :hash)
       end
 
+      def to_hash
+        Ox.load(xml, mode: :hash)
+      end
+
       def to_h
         Ox.load(xml, mode: :hash_no_attrs)
       end
@@ -23,7 +27,12 @@ module Cbrf
       end
 
       def result
-        @result ||= to_h.dig(:"soap:Envelope", :"soap:Body", :"#{name}Response", :"#{name}Result")
+        @result ||= to_hash[:"soap:Envelope"].find { it.key?(:"soap:Body") }.dig(:"soap:Body", :"#{name}Response")
+                                             .find { it.key?(:"#{name}Result") }.dig(:"#{name}Result")
+      end
+
+      def value
+        @value ||= to_h.dig(:"soap:Envelope", :"soap:Body", :"#{name}Response", :"#{name}Result")
       end
     end
   end
