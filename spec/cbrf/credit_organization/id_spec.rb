@@ -2,48 +2,52 @@
 
 RSpec.describe Cbrf::CreditOrganization::Id, with_banks: true do
   # before { stub_request(:get, API.uri).to_return(status: 401, body: fixture("401.json")) }
+  subject { Cbrf::Conversions::Id(code) }
+
   let(:code) { "0" }
-  let(:id) { described_class.new(code) }
 
   describe "#bic" do
-    it { expect(id.bic).to eq(code) }
-    it { expect(id.internal_code).to eq("-1") }
-    it { expect(id.registry_number).to eq("-1") }
+    it { expect(subject.bic).to eq code }
   end
 
   describe "#internal_code" do
-    let(:code) { "12345678" }
+    it { expect(subject.internal_code).to eq(-1) }
 
-    it { expect(id.internal_code).to eq(code) }
+    context "received from bic" do
+      let(:code) { sber.bic }
 
-    context "from bic" do
-      let(:code) { sber[:bic] }
-
-      it { expect(id.internal_code).to eq(sber[:internal_code]) }
+      it { expect(subject.internal_code).to eq sber.internal_code }
     end
 
-    context "from registry_number" do
-      let(:code) { sber[:registry_number] }
+    context "received from registry_number" do
+      let(:code) { sber.registry_number }
 
-      it { expect(id.internal_code).to eq(sber[:internal_code]) }
+      it { expect(subject.registry_number).to eq sber.registry_number }
+      it { expect(subject.internal_code).to eq sber.internal_code }
     end
   end
 
   describe "#registry_number" do
-    let(:code) { "1234" }
+    it { expect(subject.registry_number).to eq(-1) }
 
-    it { expect(id.registry_number).to eq(code) }
+    context "received from bic" do
+      let(:code) { sber.bic }
 
-    context "from bic" do
-      let(:code) { sber[:bic] }
-
-      it { expect(id.registry_number).to eq(sber[:registry_number]) }
+      it { expect(subject.registry_number).to eq sber.registry_number }
     end
 
-    context "from registry_number" do
-      let(:code) { sber[:internal_code] }
+    context "received from internal_code" do
+      let(:code) { sber.internal_code }
 
-      it { expect(id.registry_number).to eq(sber[:registry_number]) }
+      it { expect(subject.registry_number).to eq sber.registry_number }
     end
+  end
+
+  describe "#bics" do
+    it { expect(described_class.bics).to be_an Array }
+  end
+
+  describe "#all" do
+    it { expect(described_class.all).to all be_a(Cbrf::CreditOrganization::Id) }
   end
 end
