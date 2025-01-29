@@ -3,17 +3,23 @@
 # require "webmock/rspec"
 require "cbrf"
 
-Bank = Struct.new(:bic, :internal_code, :registry_number)
+module Cbrf
+  RSpec.shared_context "banks", shared_context: :metadata do
+    let(:sber) do
+      CreditOrganization::Id.new(bic: "044525225", internal_code: "350_000_004", registry_number: 1481)
+    end
+    let(:alfa) do
+      CreditOrganization::Id.new(bic: "044525593", internal_code: "450_000_036", registry_number: 1326)
+    end
+    let(:vtb) do
+      CreditOrganization::Id.new(bic: "044525187", internal_code: "350_000_008", registry_number: 1000)
+    end
+  end
 
-RSpec.shared_context "banks", shared_context: :metadata do
-  let(:sber) { Bank.new("044525225", 350_000_004, 1481) }
-  let(:alfa) { Bank.new("044525593", 450_000_036, 1326) }
-  let(:vtb)  { Bank.new("044525187", 350_000_008, 1000) }
-end
-
-RSpec.shared_context "regions", shared_context: :metadata do
-  let(:moscow) { Cbrf::Region.new(16, "Москва") }
-  let(:saint_petersburg) { Cbrf::Region.new(3, "Санкт-Петербург") }
+  RSpec.shared_context "regions", shared_context: :metadata do
+    let(:moscow) { Region.new(16, "Москва") }
+    let(:saint_petersburg) { Region.new(3, "Санкт-Петербург") }
+  end
 end
 
 RSpec.configure do |config|

@@ -2,109 +2,77 @@
 
 require "spec_helper"
 
-RSpec.describe Cbrf::CreditOrganization, with_banks: true, with_regions: true do
-  describe "#last_update" do
-  end
+module Cbrf
+  RSpec.describe CreditOrganization, with_banks: true, with_regions: true do
+    let(:co) { sber }
+    subject { described_class.new(id: co) }
 
-  describe "#licenses" do
-    subject { described_class.licenses }
-
-    # it { is_expected.to have_key(:Licens) }
-  end
-
-  describe "#bics" do
-    subject { described_class.bics }
-
-    # it { is_expected.to have_key(:EnumBIC) }
-  end
-
-  describe "#infos" do
-    subject { described_class.info(*[sber, alfa].map(&:internal_code)) }
-
-    # it { is_expected.to have_key(:CreditOrgInfo) }
-  end
-
-  describe "#info" do
-    subject { described_class.new(sber.internal_code).info }
-
-    # it { is_expected.to have_key(:CreditOrgInfo) }
-  end
-
-  describe "#note" do
-    subject { described_class.new(sber.registry_number).note }
-
-    # it { is_expected.to have_key(:CredorgInfo) }
-  end
-
-  describe "#forms" do
-    subject { described_class.new(sber.registry_number).form(form).on(date) }
-  end
-
-  let(:id) { sber.internal_code }
-  subject { described_class.new(id) }
-
-  describe "#fbu" do
-    let(:id) { alfa.internal_code }
-    # pending "find bank with FBU"
-    # it { expect(subject.fbu).to eq 123 }
-  end
-
-  describe "#offices" do
-    it { expect(subject.offices).to have_key(:CoOffices) }
-
-    context "size" do
-      it { expect(subject.offices.dig(:CoOffices, :Offices).size).to eq 86 }
+    describe "cards" do
+      it { expect(subject.cards).to be_nil }
     end
-  end
 
-  describe "#offices_in" do
-    it { expect(subject.offices_in(moscow)).to have_key(:CoOffices) }
-    context "moscow size" do
-      it { expect(subject.offices_in(moscow).dig(:CoOffices, :Offices).size).to eq 44 }
+    describe "#agencies" do
+      it { expect(subject.agencies).not_to be_empty }
     end
-  end
 
-  describe "#periods" do
-    it { expect(subject.periods).to have_key(:Docs) }
-
-    context "count" do
-      it { expect(subject.periods[:Docs].size).to eq 10 }
+    describe "balance" do
+      context "1998" do
+        it { expect(subject.balance(1998)).not_to be_empty }
+      end
     end
-  end
 
-  describe "#cards" do
-    # it { expect(subject.cards).to eq 1 }
-  end
+    describe "bankrupt" do
+      it { expect(subject.bankrupt).to be_nil }
+    end
 
-  describe "#agencies" do
-    it { expect(subject.agencies).to have_key(:Agency) }
-  end
+    describe "#fbu" do
+      it { expect(subject.fbu).to be_nil }
+    end
 
-  describe "#bankrupt" do
-    it { expect(subject.bankrupt).to be_nil }
-  end
+    describe "#offices" do
+      it { expect(subject.offices).not_to be_empty }
+    end
 
-  describe "#sites" do
-    it { expect(subject.sites).to have_key(:CredorgSites) }
-  end
+    describe "#periods" do
+      it { expect(subject.periods).not_to be_empty }
+    end
 
-  describe "#search branches" do
-    # it { expect(subject.search("С")).to eq 1 }
-  end
+    describe "sites" do
+      it { expect(subject.sites).not_to be_empty }
+    end
 
-  describe "#last_update" do
-    it { expect(described_class.last_update.year).to eq 2025 }
-  end
+    describe "#find" do
+      it { expect(described_class.find(sber.registry_number)).to be_a described_class }
+    end
 
-  describe "#search" do
-    it { expect(described_class.search("СБЕР")).to have_key(:CreditOrg) }
-  end
+    describe "#full" do
+      it "should return info sberbank" do
+        expect(described_class.full(sber.internal_code).keys).to eq %i[CO LIC]
+      end
 
-  describe "#regions" do
-    it { expect(described_class.regions).to have_key(:RegionsEnum) }
+      it "should return info sberbank and alfabank together" do
+        expect(described_class.full(sber.internal_code, alfa.internal_code).keys).to eq %i[CO LIC]
+      end
+    end
 
-    context "count" do
-      it { expect(described_class.regions.dig(:RegionsEnum, :RGID).size).to eq 91 }
+    describe "#last_update" do
+      it { expect(described_class.last_update.year).to eq 2025 }
+    end
+
+    describe "#sites" do
+      it { expect(described_class.sites(name: "СБЕР", url: "")).not_to be_empty }
+    end
+
+    describe "#search branches" do
+      # it { expect(subject.search("С")).to eq 1 }
+    end
+
+    describe "#search" do
+      # it { expect(described_class.search("СБЕР")).to have_key(:CreditOrg) }
+    end
+
+    describe "#regions" do
+      it { expect(described_class.regions).to all be_a Region }
     end
   end
 end

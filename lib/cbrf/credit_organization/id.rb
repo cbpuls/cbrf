@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Cbrf
-  class Cbrf::CreditOrganization::Id
+  class CreditOrganization::Id
     attr_reader :bic, :cregnr
 
     def initialize(internal_code: nil, bic: nil, registry_number: nil, cregnr: nil)
@@ -30,6 +30,16 @@ module Cbrf
     end
 
     class << self
+      def id_key(code)
+        if code.start_with?("0")
+          :bic
+        elsif code.length < 8
+          :registry_number
+        else
+          :internal_code
+        end
+      end
+
       # Return all bics
       def bics
         CreditOrganization::Api.call(:EnumBIC).diff.dig(:EnumBIC, :BIC)

@@ -20,7 +20,7 @@ module Cbrf
 
     # Return list regions
     def self.all
-      CreditOrganization::Api.call(:RegionsEnum).diff.dig(:RegionsEnum, :RGID).map(&:to_region) # { new(it[:RegCode], it[:CNAME]) }
+      CreditOrganization::Api.call(:RegionsEnum).diff.dig(:RegionsEnum, :RGID).map { new(it[:RegCode], it[:CNAME]) }
     end
   end
 end

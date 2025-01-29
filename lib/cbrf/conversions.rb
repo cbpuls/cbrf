@@ -4,14 +4,14 @@ module Cbrf
   module Conversions
     module_function
 
-    def Id(key)
-      key_str = key.to_s
-      if key_str.start_with?("0")
-        CreditOrganization::Id.new(bic: key_str)
-      elsif key_str.length < 8
-        CreditOrganization::Id.new(registry_number: key_str)
-      else
-        CreditOrganization::Id.new(internal_code: key_str)
+    def Id(code)
+      case code
+      when CreditOrganization::Id
+        code
+      when String
+        CreditOrganization::Id.new CreditOrganization::Id.id_key(code) => code
+      when Integer
+        CreditOrganization::Id.new CreditOrganization::Id.id_key(code.to_s) => code
       end
     end
 
