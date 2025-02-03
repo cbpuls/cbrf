@@ -2,20 +2,39 @@
 
 module Cbrf
   Region = Struct.new(:id, :name) do
+    def branches(name = nil)
+      CreditOrganization::Api.call(:SearcBranches, name:, rgn: id).diff.dig(:SearcBranches, :BR)&.map do
+        CreditOrganization::Office.new(
+          id: CreditOrganization::Id.new(registry_number: it[:Regnum]),
+          name: it[:Name],
+          full_name: it[:cnamer],
+          address: it[:Addr],
+          credit_organization_id: CreditOrganization::Id.new(internal_code: it[:IntCode], registry_number: it[:cregnum],
+                                                             cregnr: it[:cregnr])
+        )
+      end
+    end
+
+    # Offices credit organization by region
     def offices
-      pp Cbrf::CreditOrganization::Api.call(:GetOfficesByRegion, RegCode: id).diff
+      CreditOrganization::Api.call(:GetOfficesByRegion, RegCode: id).diff.dig(:CoOffices, :Offices)&.map do
+        CreditOrganization::Office.new(
+          id: CreditOrganization::Id.new(registry_number: it[:cregnum]),
+          name: it[:cname],
+          address: it[:straddrmn],
+          registered_on: it[:cndate],
+          credit_organization_id: CreditOrganization::Id.new(internal_code: it[:cmain])
+        )
+      end
     end
 
     # Return credit organizatins by region
-    # Schema:
-    # [{name: "IntCode", "msdata:Caption": "Вн. код КО", type: "xs:decimal", minOccurs: "0"}],
-    # [{name: "OrgName", "msdata:Caption": "Название орг.", type: "xs:string", minOccurs: "0"}],
-    # [{name: "bic", "msdata:Caption": "Код BIC", type: "xs:string", minOccurs: "0"}],
-    # [{name: "cregnr", type: "xs:string", minOccurs: "0"}],
-    # [{name: "cregnum", "msdata:Caption": "рег. номер", type: "xs:decimal", minOccurs: "0"}],
-    # [{name: "OGRN", "msdata:Caption": "ОГРН", type: "xs:string", minOccurs: "0"}]
     def credit_organizations
-      CreditOrganization::Api.call(:SearchByRegionCode, RegCode: id).diff.dig(:CreditOrg, :EnumCredits).map(&:to_co)
+      CreditOrganization::Api.call(:SearchByRegionCode, RegCode: id).diff.dig(:CreditOrg, :EnumCredits)&.map do
+        id = CreditOrganization::Id.new(bic: it[:bic], internal_code: it[:IntCode], registry_number: it[:cregnum],
+                                        cregnr: it[:cregnr])
+        CreditOrganization.new(id:, name: it[:OrgName], ogrn: it[:OGRN])
+      end
     end
 
     # Return list regions
