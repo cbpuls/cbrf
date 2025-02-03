@@ -3,7 +3,7 @@
 module Cbrf
   RSpec.describe Region, with_regions: true do
     describe "#all" do
-      it { expect(described_class.all).to all(be_a(Cbrf::Region)) }
+      it { expect(described_class.all).to all be_a Region }
     end
 
     describe "#branches" do
@@ -15,11 +15,7 @@ module Cbrf
     end
 
     describe "#credit_organizations" do
-      it { expect(moscow.credit_organizations).to all(be_a(Cbrf::CreditOrganization)) }
-
-      # context "count in moscow" do
-      # it { expect(moscow.credit_organizations.dig(:CreditOrg, :EnumCredits).size).to eq 1371 }
-      # end
+      it { expect(moscow.credit_organizations).to all be_a CreditOrganization }
     end
   end
 end

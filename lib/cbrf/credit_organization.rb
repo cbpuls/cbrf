@@ -6,13 +6,14 @@ module Cbrf
   class CreditOrganization
     extend Forwardable
 
-    def initialize(id:, name: nil, full_name: nil, address: nil, legal_address: nil, ogrn: nil)
+    def initialize(id:, name: nil, full_name: nil, address: nil, legal_address: nil, ogrn: nil, note: nil)
       @id = Conversions::Id(id)
       @name = name
       @full_name = full_name
       @address = address
       @legal_address = legal_address
       @ogrn = ogrn
+      @note = note
     end
 
     def_delegators :@id, :bic, :internal_code, :registry_number
@@ -60,10 +61,6 @@ module Cbrf
       Api.call(:GetSites, InternalCode: internal_code).diff.dig(:CredorgSites, :SC)
     end
 
-    def search(name)
-      Api.call(:SearcBranches, name:, rgn: registry_number).diff
-    end
-
     def form(type)
       Form.new(type, registry_number)
     end
@@ -104,7 +101,22 @@ module Cbrf
       end
 
       def search(name)
-        Api.call(:SearchByName, NamePart: name).diff
+        Api.call(:SearchByName, NamePart: name).diff.dig(:CreditOrg, :EnumCredits)&.map do
+          new(
+            id: Id.new(internal_code: it[:IntCode], bic: it[:bic], registry_number: it[:cregnum],
+                       cregnr: it[:cregnr]),
+            name: it[:OrgName], ogrn: it[:OGRN]
+          )
+        end
+      end
+
+      def search_by(name: nil, region: nil, nsitype: nil, status: nil, license: nil, fo: nil, cards: nil, fshare: nil,
+                    jstock: nil)
+        params = { NamePart: name }
+        Api.call(:SearchByNameEx, params).diff.dig(:CreditOrg, :sn)&.map do
+          id = Id.new(internal_code: it[:IntCode], registry_number: it[:cregnum], cregnr: it[:cregnr])
+          new(id:, name: it[:OrgName], ogrn: it[:OGRN], legal_address: it[:strcuraddr], note: it[:cistate])
+        end
       end
 
       def last_update

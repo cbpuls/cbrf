@@ -63,12 +63,12 @@ module Cbrf
       it { expect(described_class.sites(name: "СБЕР", url: "")).not_to be_empty }
     end
 
-    describe "#search branches" do
-      # it { expect(subject.search("С")).to eq 1 }
+    describe "#search" do
+      it { expect(described_class.search("СБЕР")).to all be_a CreditOrganization }
     end
 
-    describe "#search" do
-      # it { expect(described_class.search("СБЕР")).to have_key(:CreditOrg) }
+    describe "#search_by" do
+      it { expect(described_class.search_by(name: "СБЕР", region: moscow.id)).to all be_a CreditOrganization }
     end
 
     describe "#regions" do
