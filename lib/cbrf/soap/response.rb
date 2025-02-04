@@ -11,7 +11,8 @@ module Cbrf
       end
 
       def schema
-        # @schema ||= Schema.new Ox.load(xml, mode: :hash)
+        @schema ||= to_hash[:"soap:Envelope"].find { it.key?(:"soap:Body") }.dig(:"soap:Body", :"#{name}Response")
+                                             .find { it.key?(:"#{name}Result") }.dig(:"#{name}Result", :"xs:schema")
       end
 
       def to_hash

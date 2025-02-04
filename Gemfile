@@ -15,5 +15,6 @@ end
 
 group :test do
   # Library for stubbing and setting expectations on HTTP requests in Ruby. [https://github.com/bblimke/webmock]
+  gem "vcr", "~> 6.3.0"
   gem "webmock", "~> 3.24"
 end

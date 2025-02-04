@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Cbrf
-  RSpec.describe Region, with_regions: true do
+  RSpec.describe Region, :vcr, with_regions: true do
     describe "#all" do
       it { expect(described_class.all).to all be_a Region }
     end
