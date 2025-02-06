@@ -1,0 +1,334 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <GetPeriodsOfDocuments xmlns="http://web.cbr.ru/">
+              <InternalCode>350000004</InternalCode>
+            </GetPeriodsOfDocuments>
+          </soap12:Body>
+        </soap12:Envelope>
+    headers:
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.cbr.ru
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ddos-guard
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=60
+      Set-Cookie:
+      - __ddg10_=1738856123; Domain=.cbr.ru; Path=/; Expires=Thu, 06-Feb-2025 15:55:23
+        GMT
+      - __ddg1_=6c8guPapeqbI5hdGdW6a; Domain=.cbr.ru; HttpOnly; Path=/; Expires=Fri,
+        06-Feb-2026 15:35:23 GMT
+      - __ddg8_=CCjsBmJJkEewfdCk; Domain=.cbr.ru; Path=/; Expires=Thu, 06-Feb-2025
+        15:55:23 GMT
+      - __ddg9_=62.213.99.14; Domain=.cbr.ru; Path=/; Expires=Thu, 06-Feb-2025 15:55:23
+        GMT
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Content-Length:
+      - '20961'
+      Date:
+      - Thu, 06 Feb 2025 15:35:24 GMT
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><GetPeriodsOfDocumentsResponse
+        xmlns="http://web.cbr.ru/"><GetPeriodsOfDocumentsResult><Docs Regnum="" xmlns=""><F101><Year
+        Year="2025"><Month On="1" when="0" /></Year><Year Year="2024"><Month On="1"
+        when="0" /><Month On="2" when="0" /><Month On="3" when="0" /><Month On="4"
+        when="0" /><Month On="5" when="0" /><Month On="6" when="0" /><Month On="7"
+        when="0" /><Month On="8" when="0" /><Month On="9" when="0" /><Month On="10"
+        when="0" /><Month On="11" when="0" /><Month On="12" when="0" /></Year><Year
+        Year="2023"><Month On="6" when="0" /><Month On="7" when="0" /><Month On="8"
+        when="0" /><Month On="9" when="0" /><Month On="10" when="0" /><Month On="11"
+        when="0" /><Month On="12" when="0" /></Year><Year Year="2022"><Month On="1"
+        when="0" /><Month On="2" when="0" /></Year><Year Year="2021"><Month On="1"
+        when="0" /><Month On="2" when="0" /><Month On="3" when="0" /><Month On="4"
+        when="0" /><Month On="5" when="0" /><Month On="6" when="0" /><Month On="7"
+        when="0" /><Month On="8" when="0" /><Month On="9" when="0" /><Month On="10"
+        when="0" /><Month On="11" when="0" /><Month On="12" when="0" /></Year><Year
+        Year="2020"><Month On="1" when="0" /><Month On="2" when="0" /><Month On="3"
+        when="0" /><Month On="4" when="0" /><Month On="5" when="0" /><Month On="6"
+        when="0" /><Month On="7" when="0" /><Month On="8" when="0" /><Month On="9"
+        when="0" /><Month On="10" when="0" /><Month On="11" when="0" /><Month On="12"
+        when="0" /></Year><Year Year="2019"><Month On="1" when="0" /><Month On="2"
+        when="0" /><Month On="3" when="0" /><Month On="4" when="0" /><Month On="5"
+        when="0" /><Month On="6" when="0" /><Month On="7" when="0" /><Month On="8"
+        when="0" /><Month On="9" when="0" /><Month On="10" when="0" /><Month On="11"
+        when="0" /><Month On="12" when="0" /></Year><Year Year="2018"><Month On="1"
+        when="0" /><Month On="2" when="0" /><Month On="3" when="0" /><Month On="4"
+        when="0" /><Month On="5" when="0" /><Month On="6" when="0" /><Month On="7"
+        when="0" /><Month On="8" when="0" /><Month On="9" when="0" /><Month On="10"
+        when="0" /><Month On="11" when="0" /><Month On="12" when="0" /></Year><Year
+        Year="2017"><Month On="1" when="0" /><Month On="2" when="0" /><Month On="3"
+        when="0" /><Month On="4" when="0" /><Month On="5" when="0" /><Month On="6"
+        when="0" /><Month On="7" when="0" /><Month On="8" when="0" /><Month On="9"
+        when="0" /><Month On="10" when="0" /><Month On="11" when="0" /><Month On="12"
+        when="0" /></Year><Year Year="2016"><Month On="1" when="0" /><Month On="2"
+        when="0" /><Month On="3" when="0" /><Month On="4" when="0" /><Month On="5"
+        when="0" /><Month On="6" when="0" /><Month On="7" when="0" /><Month On="8"
+        when="0" /><Month On="9" when="0" /><Month On="10" when="0" /><Month On="11"
+        when="0" /><Month On="12" when="0" /></Year><Year Year="2015"><Month On="1"
+        when="0" /><Month On="2" when="0" /><Month On="3" when="0" /><Month On="4"
+        when="0" /><Month On="5" when="0" /><Month On="6" when="0" /><Month On="7"
+        when="0" /><Month On="8" when="0" /><Month On="9" when="0" /><Month On="10"
+        when="0" /><Month On="11" when="0" /><Month On="12" when="0" /></Year><Year
+        Year="2014"><Month On="1" when="0" /><Month On="2" when="0" /><Month On="3"
+        when="0" /><Month On="4" when="0" /><Month On="5" when="0" /><Month On="6"
+        when="0" /><Month On="7" when="0" /><Month On="8" when="0" /><Month On="9"
+        when="0" /><Month On="10" when="0" /><Month On="11" when="0" /><Month On="12"
+        when="0" /></Year><Year Year="2013"><Month On="1" when="0" /><Month On="2"
+        when="0" /><Month On="3" when="0" /><Month On="4" when="0" /><Month On="5"
+        when="0" /><Month On="6" when="0" /><Month On="7" when="0" /><Month On="8"
+        when="0" /><Month On="9" when="0" /><Month On="10" when="0" /><Month On="11"
+        when="0" /><Month On="12" when="0" /></Year><Year Year="2012"><Month On="1"
+        when="0" /><Month On="2" when="0" /><Month On="3" when="0" /><Month On="4"
+        when="0" /><Month On="5" when="0" /><Month On="6" when="0" /><Month On="7"
+        when="0" /><Month On="8" when="0" /><Month On="9" when="0" /><Month On="10"
+        when="0" /><Month On="11" when="0" /><Month On="12" when="0" /></Year><Year
+        Year="2011"><Month On="1" when="0" /><Month On="2" when="0" /><Month On="3"
+        when="0" /><Month On="4" when="0" /><Month On="5" when="0" /><Month On="6"
+        when="0" /><Month On="7" when="0" /><Month On="8" when="0" /><Month On="9"
+        when="0" /><Month On="10" when="0" /><Month On="11" when="0" /><Month On="12"
+        when="0" /></Year><Year Year="2010"><Month On="1" when="0" /><Month On="2"
+        when="0" /><Month On="3" when="0" /><Month On="4" when="0" /><Month On="5"
+        when="0" /><Month On="6" when="0" /><Month On="7" when="0" /><Month On="8"
+        when="0" /><Month On="9" when="0" /><Month On="10" when="0" /><Month On="11"
+        when="0" /><Month On="12" when="0" /></Year><Year Year="2009"><Month On="1"
+        when="0" /><Month On="2" when="0" /><Month On="3" when="0" /><Month On="4"
+        when="0" /><Month On="5" when="0" /><Month On="6" when="0" /><Month On="7"
+        when="0" /><Month On="8" when="0" /><Month On="9" when="0" /><Month On="10"
+        when="0" /><Month On="11" when="0" /><Month On="12" when="0" /></Year><Year
+        Year="2008"><Month On="1" when="0" /><Month On="2" when="0" /><Month On="3"
+        when="0" /><Month On="4" when="0" /><Month On="5" when="0" /><Month On="6"
+        when="0" /><Month On="7" when="0" /><Month On="8" when="0" /><Month On="9"
+        when="0" /><Month On="10" when="0" /><Month On="11" when="0" /><Month On="12"
+        when="0" /></Year><Year Year="2007"><Month On="1" when="93039" /><Month On="2"
+        when="0" /><Month On="3" when="0" /><Month On="4" when="0" /><Month On="5"
+        when="0" /><Month On="6" when="0" /><Month On="7" when="0" /><Month On="8"
+        when="0" /><Month On="9" when="0" /><Month On="10" when="0" /><Month On="11"
+        when="0" /><Month On="12" when="0" /></Year><Year Year="2006"><Month On="1"
+        when="40215" /><Month On="2" when="41078" /><Month On="3" when="41878" /><Month
+        On="4" when="42730" /><Month On="5" when="43317" /><Month On="6" when="44176"
+        /><Month On="7" when="44770" /><Month On="8" when="45631" /><Month On="9"
+        when="48069" /><Month On="10" when="48672" /><Month On="11" when="49556" /><Month
+        On="12" when="81393" /></Year><Year Year="2005"><Month On="1" when="29640"
+        /><Month On="2" when="30457" /><Month On="3" when="31237" /><Month On="4"
+        when="31337" /><Month On="5" when="32668" /><Month On="6" when="33500" /><Month
+        On="7" when="34084" /><Month On="8" when="36474" /><Month On="9" when="37324"
+        /><Month On="10" when="37907" /><Month On="11" when="38774" /><Month On="12"
+        when="39366" /></Year><Year Year="2004"><Month On="1" when="21128" /><Month
+        On="2" when="20893" /><Month On="3" when="21161" /><Month On="4" when="21931"
+        /><Month On="5" when="23166" /><Month On="6" when="23247" /><Month On="7"
+        when="24583" /><Month On="8" when="26052" /><Month On="9" when="26129" /><Month
+        On="10" when="27151" /><Month On="11" when="28242" /><Month On="12" when="28803"
+        /></Year><Year Year="2003"><Month On="6" when="15339" /><Month On="7" when="16268"
+        /><Month On="8" when="17026" /><Month On="9" when="17640" /><Month On="10"
+        when="18154" /><Month On="11" when="18882" /><Month On="12" when="19400" /></Year></F101><F102><Year
+        Year="2025"><Quartal On="1" /></Year><Year Year="2024"><Quartal On="1" /><Quartal
+        On="2" /><Quartal On="3" /><Quartal On="4" /></Year><Year Year="2023"><Quartal
+        On="3" /><Quartal On="4" /></Year><Year Year="2022"><Quartal On="1" /></Year><Year
+        Year="2021"><Quartal On="1" /><Quartal On="2" /><Quartal On="3" /><Quartal
+        On="4" /></Year><Year Year="2020"><Quartal On="1" /><Quartal On="2" /><Quartal
+        On="3" /><Quartal On="4" /></Year><Year Year="2019"><Quartal On="1" /><Quartal
+        On="2" /><Quartal On="3" /><Quartal On="4" /></Year><Year Year="2018"><Quartal
+        On="1" /><Quartal On="2" /><Quartal On="3" /><Quartal On="4" /></Year><Year
+        Year="2017"><Quartal On="1" /><Quartal On="2" /><Quartal On="3" /><Quartal
+        On="4" /></Year><Year Year="2016"><Quartal On="1" /><Quartal On="2" /><Quartal
+        On="3" /><Quartal On="4" /></Year><Year Year="2015"><Quartal On="1" /><Quartal
+        On="2" /><Quartal On="3" /><Quartal On="4" /></Year><Year Year="2014"><Quartal
+        On="1" /><Quartal On="2" /><Quartal On="3" /><Quartal On="4" /></Year><Year
+        Year="2013"><Quartal On="1" /><Quartal On="2" /><Quartal On="3" /><Quartal
+        On="4" /></Year><Year Year="2012"><Quartal On="1" /><Quartal On="2" /><Quartal
+        On="3" /><Quartal On="4" /></Year><Year Year="2011"><Quartal On="1" /><Quartal
+        On="2" /><Quartal On="3" /><Quartal On="4" /></Year><Year Year="2010"><Quartal
+        On="1" /><Quartal On="2" /><Quartal On="3" /><Quartal On="4" /></Year><Year
+        Year="2009"><Quartal On="1" /><Quartal On="2" /><Quartal On="3" /><Quartal
+        On="4" /></Year><Year Year="2008"><Quartal On="1" /><Quartal On="2" /><Quartal
+        On="3" /><Quartal On="4" /></Year><Year Year="2007"><Quartal On="1" when="18938"
+        /><Quartal On="2" /><Quartal On="3" /><Quartal On="4" /></Year><Year Year="2006"><Quartal
+        On="1" when="16037" /><Quartal On="2" when="16795" /><Quartal On="3" when="17526"
+        /><Quartal On="4" when="18260" /></Year><Year Year="2005"><Quartal On="1"
+        when="13126" /><Quartal On="2" when="13858" /><Quartal On="3" when="14571"
+        /><Quartal On="4" when="15294" /></Year><Year Year="2004"><Quartal On="1"
+        when="10909" /><Quartal On="2" when="11087" /><Quartal On="3" when="11737"
+        /><Quartal On="4" when="12418" /></Year><Year Year="2003"><Quartal On="3"
+        when="9253" /><Quartal On="4" when="9784" /></Year></F102><F123b><Year Year="2025"><Month
+        On="1" /></Year><Year Year="2024"><Month On="1" /><Month On="2" /><Month On="3"
+        /><Month On="4" /><Month On="5" /><Month On="6" /><Month On="7" /><Month On="8"
+        /><Month On="9" /><Month On="10" /><Month On="11" /><Month On="12" /></Year><Year
+        Year="2023"><Month On="6" /><Month On="7" /><Month On="8" /><Month On="9"
+        /><Month On="10" /><Month On="11" /><Month On="12" /></Year><Year Year="2022"><Month
+        On="1" /><Month On="2" /></Year><Year Year="2021"><Month On="1" /><Month On="2"
+        /><Month On="3" /><Month On="4" /><Month On="5" /><Month On="6" /><Month On="7"
+        /><Month On="8" /><Month On="9" /><Month On="10" /><Month On="11" /><Month
+        On="12" /></Year><Year Year="2020"><Month On="1" /><Month On="2" /><Month
+        On="3" /><Month On="4" /><Month On="5" /><Month On="6" /><Month On="7" /><Month
+        On="8" /><Month On="9" /><Month On="10" /><Month On="11" /><Month On="12"
+        /></Year><Year Year="2019"><Month On="1" /><Month On="2" /><Month On="3" /><Month
+        On="4" /><Month On="5" /><Month On="6" /><Month On="7" /><Month On="8" /><Month
+        On="9" /><Month On="10" /><Month On="11" /><Month On="12" /></Year><Year Year="2018"><Month
+        On="1" /><Month On="2" /><Month On="3" /><Month On="4" /><Month On="5" /><Month
+        On="6" /><Month On="7" /><Month On="8" /><Month On="9" /><Month On="10" /><Month
+        On="11" /><Month On="12" /></Year><Year Year="2017"><Month On="1" /><Month
+        On="2" /><Month On="3" /><Month On="4" /><Month On="5" /><Month On="6" /><Month
+        On="7" /><Month On="8" /><Month On="9" /><Month On="10" /><Month On="11" /><Month
+        On="12" /></Year><Year Year="2016"><Month On="1" /><Month On="2" /><Month
+        On="3" /><Month On="4" /><Month On="5" /><Month On="6" /><Month On="7" /><Month
+        On="8" /><Month On="9" /><Month On="10" /><Month On="11" /><Month On="12"
+        /></Year><Year Year="2015"><Month On="1" /><Month On="2" /><Month On="3" /><Month
+        On="4" /><Month On="5" /><Month On="6" /><Month On="7" /><Month On="8" /><Month
+        On="9" /><Month On="10" /><Month On="11" /><Month On="12" /></Year><Year Year="2014"><Month
+        On="2" /><Month On="3" /><Month On="4" /><Month On="5" /><Month On="6" /><Month
+        On="7" /><Month On="8" /><Month On="9" /><Month On="10" /><Month On="11" /><Month
+        On="12" /></Year></F123b><F134b><Year Year="2015"><Month On="1" /></Year><Year
+        Year="2014"><Month On="1" /><Month On="2" /><Month On="3" /><Month On="4"
+        /><Month On="5" /><Month On="6" /><Month On="7" /><Month On="8" /><Month On="9"
+        /><Month On="10" /><Month On="11" /><Month On="12" /></Year><Year Year="2013"><Month
+        On="1" /><Month On="2" /><Month On="3" /><Month On="4" /><Month On="5" /><Month
+        On="6" /><Month On="7" /><Month On="8" /><Month On="9" /><Month On="10" /><Month
+        On="11" /><Month On="12" /></Year><Year Year="2012"><Month On="1" /><Month
+        On="2" /><Month On="3" /><Month On="4" /><Month On="5" /><Month On="6" /><Month
+        On="7" /><Month On="8" /><Month On="9" /><Month On="10" /><Month On="11" /><Month
+        On="12" /></Year><Year Year="2011"><Month On="1" /><Month On="2" /><Month
+        On="3" /><Month On="4" /><Month On="5" /><Month On="6" /><Month On="7" /><Month
+        On="8" /><Month On="9" /><Month On="10" /><Month On="11" /><Month On="12"
+        /></Year><Year Year="2010"><Month On="10" /><Month On="11" /><Month On="12"
+        /></Year></F134b><F135b><Year Year="2025"><Month On="1" fmt="fn135" /></Year><Year
+        Year="2024"><Month On="1" fmt="fn135" /><Month On="2" fmt="fn135" /><Month
+        On="3" fmt="fn135" /><Month On="4" fmt="fn135" /><Month On="5" fmt="fn135"
+        /><Month On="6" fmt="fn135" /><Month On="7" fmt="fn135" /><Month On="8" fmt="fn135"
+        /><Month On="9" fmt="fn135" /><Month On="10" fmt="fn135" /><Month On="11"
+        fmt="fn135" /><Month On="12" fmt="fn135" /></Year><Year Year="2023"><Month
+        On="6" fmt="fn135" /><Month On="7" fmt="fn135" /><Month On="8" fmt="fn135"
+        /><Month On="9" fmt="fn135" /><Month On="10" fmt="fn135" /><Month On="11"
+        fmt="fn135" /><Month On="12" fmt="fn135" /></Year><Year Year="2022"><Month
+        On="1" fmt="fn135" /><Month On="2" fmt="fn135" /></Year><Year Year="2021"><Month
+        On="1" fmt="fm135" /><Month On="2" fmt="fm135" /><Month On="3" fmt="fm135"
+        /><Month On="4" fmt="fm135" /><Month On="5" fmt="fn135" /><Month On="6" fmt="fn135"
+        /><Month On="7" fmt="fn135" /><Month On="8" fmt="fn135" /><Month On="9" fmt="fn135"
+        /><Month On="10" fmt="fn135" /><Month On="11" fmt="fn135" /><Month On="12"
+        fmt="fn135" /></Year><Year Year="2020"><Month On="1" fmt="fm135" /><Month
+        On="2" fmt="fm135" /><Month On="3" fmt="fm135" /><Month On="4" fmt="fm135"
+        /><Month On="5" fmt="fm135" /><Month On="6" fmt="fm135" /><Month On="7" fmt="fm135"
+        /><Month On="8" fmt="fm135" /><Month On="9" fmt="fm135" /><Month On="10" fmt="fm135"
+        /><Month On="11" fmt="fm135" /><Month On="12" fmt="fm135" /></Year><Year Year="2019"><Month
+        On="1" fmt="fm135" /><Month On="2" fmt="fm135" /><Month On="3" fmt="fm135"
+        /><Month On="4" fmt="fm135" /><Month On="5" fmt="fm135" /><Month On="6" fmt="fm135"
+        /><Month On="7" fmt="fm135" /><Month On="8" fmt="fm135" /><Month On="9" fmt="fm135"
+        /><Month On="10" fmt="fm135" /><Month On="11" fmt="fm135" /><Month On="12"
+        fmt="fm135" /></Year><Year Year="2018"><Month On="1" fmt="fm135" /><Month
+        On="2" fmt="fm135" /><Month On="3" fmt="fm135" /><Month On="4" fmt="fm135"
+        /><Month On="5" fmt="fm135" /><Month On="6" fmt="fm135" /><Month On="7" fmt="fm135"
+        /><Month On="8" fmt="fm135" /><Month On="9" fmt="fm135" /><Month On="10" fmt="fm135"
+        /><Month On="11" fmt="fm135" /><Month On="12" fmt="fm135" /></Year><Year Year="2017"><Month
+        On="1" fmt="fm135" /><Month On="2" fmt="fm135" /><Month On="3" fmt="fm135"
+        /><Month On="4" fmt="fm135" /><Month On="5" fmt="fm135" /><Month On="6" fmt="fm135"
+        /><Month On="7" fmt="fm135" /><Month On="8" fmt="fm135" /><Month On="9" fmt="fm135"
+        /><Month On="10" fmt="fm135" /><Month On="11" fmt="fm135" /><Month On="12"
+        fmt="fm135" /></Year><Year Year="2016"><Month On="1" fmt="fm135" /><Month
+        On="2" fmt="fm135" /><Month On="3" fmt="fm135" /><Month On="4" fmt="fm135"
+        /><Month On="5" fmt="fm135" /><Month On="6" fmt="fm135" /><Month On="7" fmt="fm135"
+        /><Month On="8" fmt="fm135" /><Month On="9" fmt="fm135" /><Month On="10" fmt="fm135"
+        /><Month On="11" fmt="fm135" /><Month On="12" fmt="fm135" /></Year><Year Year="2015"><Month
+        On="1" fmt="fm135" /><Month On="2" fmt="fm135" /><Month On="3" fmt="fm135"
+        /><Month On="4" fmt="fm135" /><Month On="5" fmt="fm135" /><Month On="6" fmt="fm135"
+        /><Month On="7" fmt="fm135" /><Month On="8" fmt="fm135" /><Month On="9" fmt="fm135"
+        /><Month On="10" fmt="fm135" /><Month On="11" fmt="fm135" /><Month On="12"
+        fmt="fm135" /></Year><Year Year="2014"><Month On="1" fmt="fr135" /><Month
+        On="2" fmt="fm135" /><Month On="3" fmt="fm135" /><Month On="4" fmt="fm135"
+        /><Month On="5" fmt="fm135" /><Month On="6" fmt="fm135" /><Month On="7" fmt="fm135"
+        /><Month On="8" fmt="fm135" /><Month On="9" fmt="fm135" /><Month On="10" fmt="fm135"
+        /><Month On="11" fmt="fm135" /><Month On="12" fmt="fm135" /></Year><Year Year="2013"><Month
+        On="1" fmt="fo135" /><Month On="2" fmt="fr135" /><Month On="3" fmt="fr135"
+        /><Month On="4" fmt="fr135" /><Month On="5" fmt="fr135" /><Month On="6" fmt="fr135"
+        /><Month On="7" fmt="fr135" /><Month On="8" fmt="fr135" /><Month On="9" fmt="fr135"
+        /><Month On="10" fmt="fr135" /><Month On="11" fmt="fr135" /><Month On="12"
+        fmt="fr135" /></Year><Year Year="2012"><Month On="1" fmt="fo135" /><Month
+        On="2" fmt="fo135" /><Month On="3" fmt="fo135" /><Month On="4" fmt="fo135"
+        /><Month On="5" fmt="fo135" /><Month On="6" fmt="fo135" /><Month On="7" fmt="fo135"
+        /><Month On="8" fmt="fo135" /><Month On="9" fmt="fo135" /><Month On="10" fmt="fo135"
+        /><Month On="11" fmt="fo135" /><Month On="12" fmt="fo135" /></Year><Year Year="2011"><Month
+        On="1" fmt="f135" /><Month On="2" fmt="fo135" /><Month On="3" fmt="fo135"
+        /><Month On="4" fmt="fo135" /><Month On="5" fmt="fo135" /><Month On="6" fmt="fo135"
+        /><Month On="7" fmt="fo135" /><Month On="8" fmt="fo135" /><Month On="9" fmt="fo135"
+        /><Month On="10" fmt="fo135" /><Month On="11" fmt="fo135" /><Month On="12"
+        fmt="fo135" /></Year><Year Year="2010"><Month On="10" fmt="f135" /><Month
+        On="11" fmt="f135" /><Month On="12" fmt="f135" /></Year></F135b><AnnualReport><Year
+        On="2024" Dt="0" /><Year On="2023" Dt="0" /><Year On="2022" Dt="0" /><Year
+        On="2021" Dt="0" /><Year On="2020" Dt="0" /><Year On="2019" Dt="0" /><Year
+        On="2018" Dt="0" /><Year On="2017" Dt="0" /><Year On="2016" Dt="0" /><Year
+        On="2015" Dt="0" /><Year On="2014" Dt="0" /><Year On="2013" Dt="0" /><Year
+        On="2012" Dt="0" /><Year On="2011" Dt="0" /><Year On="2010" Dt="0" /><Year
+        On="2009" Dt="0" /><Year On="2008" Dt="0" /><Year On="2007" Dt="0" /><Year
+        On="2006" Dt="0" /><Year On="2005" Dt="0" /><Year On="2004" Dt="0" /><Year
+        On="2003" Dt="0" /><Year On="2002" Dt="0" /><Year On="2001" Dt="0" /><Year
+        On="2000" Dt="0" /><Year On="1999" Dt="0" /><Year On="1998" Dt="0" /><Year
+        On="1997" Dt="1905" /></AnnualReport><F802><Year Year="2024"><Month On="1"
+        dt="202312" /><Month On="4" dt="202403" /><Month On="7" dt="202406" /><Month
+        On="10" dt="202409" /></Year><Year Year="2023"><Month On="7" dt="202306" /><Month
+        On="10" dt="202309" /></Year><Year Year="2021"><Month On="1" dt="202012" /><Month
+        On="4" dt="202103" /><Month On="7" dt="202106" /><Month On="10" dt="202109"
+        /></Year><Year Year="2020"><Month On="1" dt="201912" /><Month On="4" dt="202003"
+        /><Month On="7" dt="202006" /><Month On="10" dt="202009" /></Year><Year Year="2019"><Month
+        On="1" dt="201812" /><Month On="4" dt="201903" /><Month On="7" dt="201906"
+        /><Month On="10" dt="201909" /></Year><Year Year="2018"><Month On="1" dt="201712"
+        /><Month On="4" dt="201803" /><Month On="7" dt="201806" /><Month On="10" dt="201809"
+        /></Year><Year Year="2017"><Month On="10" dt="201709" /></Year></F802><F803><Year
+        Year="2024"><Month On="1" dt="202312" /><Month On="4" dt="202403" /><Month
+        On="7" dt="202406" /><Month On="10" dt="202409" /></Year><Year Year="2023"><Month
+        On="7" dt="202306" /><Month On="10" dt="202309" /></Year><Year Year="2021"><Month
+        On="1" dt="202012" /><Month On="4" dt="202103" /><Month On="7" dt="202106"
+        /><Month On="10" dt="202109" /></Year><Year Year="2020"><Month On="1" dt="201912"
+        /><Month On="4" dt="202003" /><Month On="7" dt="202006" /><Month On="10" dt="202009"
+        /></Year><Year Year="2019"><Month On="1" dt="201812" /><Month On="4" dt="201903"
+        /><Month On="7" dt="201906" /><Month On="10" dt="201909" /></Year><Year Year="2018"><Month
+        On="1" dt="201712" /><Month On="4" dt="201803" /><Month On="7" dt="201806"
+        /><Month On="10" dt="201809" /></Year><Year Year="2017"><Month On="10" dt="201709"
+        /></Year></F803><F805><Year Year="2024"><Month On="1" dt="202312" /><Month
+        On="4" dt="202403" /><Month On="7" dt="202406" /><Month On="10" dt="202409"
+        /></Year><Year Year="2023"><Month On="7" dt="202306" /><Month On="10" dt="202309"
+        /></Year><Year Year="2021"><Month On="1" dt="202012" /><Month On="4" dt="202103"
+        /><Month On="7" dt="202106" /><Month On="10" dt="202109" /></Year><Year Year="2020"><Month
+        On="1" dt="201912" /><Month On="4" dt="202003" /><Month On="7" dt="202006"
+        /><Month On="10" dt="202009" /></Year><Year Year="2019"><Month On="1" dt="201812"
+        /><Month On="4" dt="201903" /><Month On="7" dt="201906" /><Month On="10" dt="201909"
+        /></Year><Year Year="2018"><Month On="1" dt="201712" /><Month On="4" dt="201803"
+        /><Month On="7" dt="201806" /><Month On="10" dt="201809" /></Year><Year Year="2017"><Month
+        On="10" dt="201709" /></Year></F805></Docs></GetPeriodsOfDocumentsResult></GetPeriodsOfDocumentsResponse></soap:Body></soap:Envelope>
+  recorded_at: Thu, 06 Feb 2025 15:35:24 GMT
+recorded_with: VCR 6.3.1

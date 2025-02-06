@@ -1,0 +1,86 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <GetBankrots xmlns="http://web.cbr.ru/">
+              <InternalCode>350000004</InternalCode>
+            </GetBankrots>
+          </soap12:Body>
+        </soap12:Envelope>
+    headers:
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.cbr.ru
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ddos-guard
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=60
+      Set-Cookie:
+      - __ddg10_=1738856123; Domain=.cbr.ru; Path=/; Expires=Thu, 06-Feb-2025 15:55:23
+        GMT
+      - __ddg1_=I8deP3nN0w3FcC4gCQBk; Domain=.cbr.ru; HttpOnly; Path=/; Expires=Fri,
+        06-Feb-2026 15:35:23 GMT
+      - __ddg8_=XPOTQGiKN9MMJPke; Domain=.cbr.ru; Path=/; Expires=Thu, 06-Feb-2025
+        15:55:23 GMT
+      - __ddg9_=62.213.99.14; Domain=.cbr.ru; Path=/; Expires=Thu, 06-Feb-2025 15:55:23
+        GMT
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Content-Length:
+      - '1646'
+      Date:
+      - Thu, 06 Feb 2025 15:35:23 GMT
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><GetBankrotsResponse
+        xmlns="http://web.cbr.ru/"><GetBankrotsResult><xs:schema id="Bankrots" xmlns=""
+        xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"><xs:element
+        name="Bankrots" msdata:IsDataSet="true" msdata:UseCurrentLocale="true"><xs:complexType><xs:choice
+        minOccurs="0" maxOccurs="unbounded"><xs:element name="BN"><xs:complexType><xs:sequence><xs:element
+        name="cistate" type="xs:unsignedByte" minOccurs="0" /><xs:element name="Doc_ID"
+        type="xs:int" minOccurs="0" /><xs:element name="DT" type="xs:dateTime" minOccurs="0"
+        /><xs:element name="part_title" type="xs:string" minOccurs="0" /><xs:element
+        name="Title" type="xs:string" minOccurs="0" /><xs:element name="Comment" type="xs:string"
+        minOccurs="0" /><xs:element name="Ltype" type="xs:string" minOccurs="0" /></xs:sequence></xs:complexType></xs:element><xs:element
+        name="BN1"><xs:complexType><xs:sequence><xs:element name="DocID" type="xs:int"
+        minOccurs="0" /><xs:element name="DT" type="xs:dateTime" minOccurs="0" /><xs:element
+        name="Title" type="xs:string" minOccurs="0" /><xs:element name="Msg" type="xs:string"
+        minOccurs="0" /></xs:sequence></xs:complexType></xs:element></xs:choice></xs:complexType></xs:element></xs:schema><diffgr:diffgram
+        xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1"
+        /></GetBankrotsResult></GetBankrotsResponse></soap:Body></soap:Envelope>
+  recorded_at: Thu, 06 Feb 2025 15:35:23 GMT
+recorded_with: VCR 6.3.1

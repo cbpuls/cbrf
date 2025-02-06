@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Cbrf
-  RSpec.describe CreditOrganization, with_banks: true, with_regions: true do
+  RSpec.describe CreditOrganization, :vcr, with_banks: true, with_regions: true do
     let(:co) { sber }
     subject { described_class.new(id: co) }
 

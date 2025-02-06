@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Cbrf::CreditOrganization::Id, with_banks: true do
+RSpec.describe Cbrf::CreditOrganization::Id, :vcr, with_banks: true do
   # before { stub_request(:get, API.uri).to_return(status: 401, body: fixture("401.json")) }
   subject { Cbrf::Conversions::Id(code) }
 

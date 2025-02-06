@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <GetFBU xmlns="http://web.cbr.ru/">
+              <IntCode>350000004</IntCode>
+            </GetFBU>
+          </soap12:Body>
+        </soap12:Envelope>
+    headers:
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.cbr.ru
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ddos-guard
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=60
+      Set-Cookie:
+      - __ddg10_=1738856123; Domain=.cbr.ru; Path=/; Expires=Thu, 06-Feb-2025 15:55:23
+        GMT
+      - __ddg1_=3BRY1NuvBFlLGskITJKC; Domain=.cbr.ru; HttpOnly; Path=/; Expires=Fri,
+        06-Feb-2026 15:35:23 GMT
+      - __ddg8_=9TZr2Eq9vSvqZadl; Domain=.cbr.ru; Path=/; Expires=Thu, 06-Feb-2025
+        15:55:23 GMT
+      - __ddg9_=62.213.99.14; Domain=.cbr.ru; Path=/; Expires=Thu, 06-Feb-2025 15:55:23
+        GMT
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Content-Length:
+      - '1519'
+      Date:
+      - Thu, 06 Feb 2025 15:35:23 GMT
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c29hcDpFbnZlbG9wZSB4bWxuczpzb2FwPSJodHRwOi8vd3d3LnczLm9yZy8yMDAzLzA1L3NvYXAtZW52ZWxvcGUiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiPjxzb2FwOkJvZHk+PEdldEZCVVJlc3BvbnNlIHhtbG5zPSJodHRwOi8vd2ViLmNici5ydS8iPjxHZXRGQlVSZXN1bHQ+PHhzOnNjaGVtYSBpZD0iRkJVIiB4bWxucz0iIiB4bWxuczp4cz0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOm1zZGF0YT0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTp4bWwtbXNkYXRhIj48eHM6ZWxlbWVudCBuYW1lPSJGQlUiIG1zZGF0YTpJc0RhdGFTZXQ9InRydWUiIG1zZGF0YTpVc2VDdXJyZW50TG9jYWxlPSJ0cnVlIj48eHM6Y29tcGxleFR5cGU+PHhzOmNob2ljZSBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0idW5ib3VuZGVkIj48eHM6ZWxlbWVudCBuYW1lPSJGQiI+PHhzOmNvbXBsZXhUeXBlPjx4czpzZXF1ZW5jZT48eHM6ZWxlbWVudCBuYW1lPSJmcmVnbnVtIiBtc2RhdGE6Q2FwdGlvbj0i0KDQtdCz0LjRgdGC0YDQsNGG0LjQvtC90L3Ri9C5INC90L7QvNC10YAg0J7QpNCR0KMiIHR5cGU9InhzOnN0cmluZyIgbWluT2NjdXJzPSIwIiAvPjx4czplbGVtZW50IG5hbWU9ImZkYXRlcmVnIiBtc2RhdGE6Q2FwdGlvbj0i0JTQsNGC0LAg0YDQtdCz0LjRgdGC0YDQsNGG0LjQuCDQntCk0JHQoyIgdHlwZT0ieHM6c3RyaW5nIiBtaW5PY2N1cnM9IjAiIC8+PHhzOmVsZW1lbnQgbmFtZT0iZmRhdGVlbmQiIG1zZGF0YTpDYXB0aW9uPSLQlNCw0YLQsCDQv9GA0LXQutGA0LDRidC10L3QuNGPINCe0KTQkdCjIiB0eXBlPSJ4czpzdHJpbmciIG1pbk9jY3Vycz0iMCIgLz48eHM6ZWxlbWVudCBuYW1lPSJmdmFsdWUiIG1zZGF0YTpDYXB0aW9uPSLQn9GA0LXQtNC10LvRjNC90YvQuSDRgdGC0L7QuNC80L7RgdGC0L3QvtC5INC+0LHRitC10Lwg0LjQvNGD0YnQtdGB0YLQstCwINCyINCe0KTQkdCjLCDRgtGL0YEuINGA0YPQsS4iIHR5cGU9InhzOnN0cmluZyIgbWluT2NjdXJzPSIwIiAvPjx4czplbGVtZW50IG5hbWU9ImNvbW1lbnQiIG1zZGF0YTpDYXB0aW9uPSLQn9GA0LjQvNC10YfQsNC90LjQtSIgdHlwZT0ieHM6c3RyaW5nIiBtaW5PY2N1cnM9IjAiIC8+PC94czpzZXF1ZW5jZT48L3hzOmNvbXBsZXhUeXBlPjwveHM6ZWxlbWVudD48L3hzOmNob2ljZT48L3hzOmNvbXBsZXhUeXBlPjwveHM6ZWxlbWVudD48L3hzOnNjaGVtYT48ZGlmZmdyOmRpZmZncmFtIHhtbG5zOm1zZGF0YT0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTp4bWwtbXNkYXRhIiB4bWxuczpkaWZmZ3I9InVybjpzY2hlbWFzLW1pY3Jvc29mdC1jb206eG1sLWRpZmZncmFtLXYxIiAvPjwvR2V0RkJVUmVzdWx0PjwvR2V0RkJVUmVzcG9uc2U+PC9zb2FwOkJvZHk+PC9zb2FwOkVudmVsb3BlPg==
+  recorded_at: Thu, 06 Feb 2025 15:35:23 GMT
+recorded_with: VCR 6.3.1
