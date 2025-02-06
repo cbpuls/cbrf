@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <Data102Form xmlns="http://web.cbr.ru/">
+              <CredorgNumber>1481</CredorgNumber>
+              <SymbCode>11000</SymbCode>
+              <DateFrom>2024-01-01</DateFrom>
+              <DateTo>2024-12-01</DateTo>
+            </Data102Form>
+          </soap12:Body>
+        </soap12:Envelope>
+    headers:
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.cbr.ru
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ddos-guard
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=60
+      Set-Cookie:
+      - __ddg10_=1738676397; Domain=.cbr.ru; Path=/; Expires=Tue, 04-Feb-2025 13:59:57
+        GMT
+      - __ddg1_=vB9FFA5WHhrKvTZFmvnP; Domain=.cbr.ru; HttpOnly; Path=/; Expires=Wed,
+        04-Feb-2026 13:39:57 GMT
+      - __ddg8_=ayx6akzLDbftEl6O; Domain=.cbr.ru; Path=/; Expires=Tue, 04-Feb-2025
+        13:59:57 GMT
+      - __ddg9_=91.193.178.224; Domain=.cbr.ru; Path=/; Expires=Tue, 04-Feb-2025 13:59:57
+        GMT
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Content-Length:
+      - '1861'
+      Date:
+      - Tue, 04 Feb 2025 13:39:57 GMT
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c29hcDpFbnZlbG9wZSB4bWxuczpzb2FwPSJodHRwOi8vd3d3LnczLm9yZy8yMDAzLzA1L3NvYXAtZW52ZWxvcGUiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiPjxzb2FwOkJvZHk+PERhdGExMDJGb3JtUmVzcG9uc2UgeG1sbnM9Imh0dHA6Ly93ZWIuY2JyLnJ1LyI+PERhdGExMDJGb3JtUmVzdWx0Pjx4czpzY2hlbWEgaWQ9IkYxMDJEQVRBRlVMTCIgeG1sbnM9IiIgeG1sbnM6eHM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hIiB4bWxuczptc2RhdGE9InVybjpzY2hlbWFzLW1pY3Jvc29mdC1jb206eG1sLW1zZGF0YSI+PHhzOmVsZW1lbnQgbmFtZT0iRjEwMkRBVEFGVUxMIiBtc2RhdGE6SXNEYXRhU2V0PSJ0cnVlIiBtc2RhdGE6VXNlQ3VycmVudExvY2FsZT0idHJ1ZSI+PHhzOmNvbXBsZXhUeXBlPjx4czpjaG9pY2UgbWluT2NjdXJzPSIwIiBtYXhPY2N1cnM9InVuYm91bmRlZCI+PHhzOmVsZW1lbnQgbmFtZT0iRkRGIj48eHM6Y29tcGxleFR5cGU+PHhzOnNlcXVlbmNlPjx4czplbGVtZW50IG5hbWU9IkRUIiBtc2RhdGE6Q2FwdGlvbj0i0JTQsNGC0LAiIHR5cGU9InhzOmRhdGVUaW1lIiBtaW5PY2N1cnM9IjAiIC8+PHhzOmVsZW1lbnQgbmFtZT0idmFsIiBtc2RhdGE6Q2FwdGlvbj0i0JLRgdC10LPQviIgdHlwZT0ieHM6ZGVjaW1hbCIgbWluT2NjdXJzPSIwIiAvPjx4czplbGVtZW50IG5hbWU9InIiIG1zZGF0YTpDYXB0aW9uPSLQodGD0LzQvNGLINC+0YIg0L7Qv9C10YDQsNGG0LjQuSDQsiDRgNGD0LHQu9GP0YUo0LIg0YDRg9Cx0LvRj9GFKSIgdHlwZT0ieHM6ZGVjaW1hbCIgbWluT2NjdXJzPSIwIiAvPjx4czplbGVtZW50IG5hbWU9InYiIG1zZGF0YTpDYXB0aW9uPSLQodGD0LzQvNGLINC+0YIg0L7Qv9C10YDQsNGG0LjQuSDQsiDQuNC9LiDQstCw0LvRjtGC0LUg0Lgg0LTRgNCw0LMuINC80LXRgtCw0LvQu9Cw0YUo0LIg0YDRg9Cx0LvRj9GFKSIgdHlwZT0ieHM6ZGVjaW1hbCIgbWluT2NjdXJzPSIwIiAvPjwveHM6c2VxdWVuY2U+PC94czpjb21wbGV4VHlwZT48L3hzOmVsZW1lbnQ+PC94czpjaG9pY2U+PC94czpjb21wbGV4VHlwZT48L3hzOmVsZW1lbnQ+PC94czpzY2hlbWE+PGRpZmZncjpkaWZmZ3JhbSB4bWxuczptc2RhdGE9InVybjpzY2hlbWFzLW1pY3Jvc29mdC1jb206eG1sLW1zZGF0YSIgeG1sbnM6ZGlmZmdyPSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOnhtbC1kaWZmZ3JhbS12MSI+PEYxMDJEQVRBRlVMTCB4bWxucz0iIj48RkRGIGRpZmZncjppZD0iRkRGMSIgbXNkYXRhOnJvd09yZGVyPSIwIj48RFQ+MjAyNC0wMS0wMVQwMDowMDowMCswMzowMDwvRFQ+PHZhbD4zOTUzNTc3ODUzPC92YWw+PC9GREY+PEZERiBkaWZmZ3I6aWQ9IkZERjIiIG1zZGF0YTpyb3dPcmRlcj0iMSI+PERUPjIwMjQtMDQtMDFUMDA6MDA6MDArMDM6MDA8L0RUPjx2YWw+MTMyNTgzMjUyMTwvdmFsPjwvRkRGPjxGREYgZGlmZmdyOmlkPSJGREYzIiBtc2RhdGE6cm93T3JkZXI9IjIiPjxEVD4yMDI0LTA3LTAxVDAwOjAwOjAwKzAzOjAwPC9EVD48dmFsPjI3NDE4MTcwNTk8L3ZhbD48L0ZERj48RkRGIGRpZmZncjppZD0iRkRGNCIgbXNkYXRhOnJvd09yZGVyPSIzIj48RFQ+MjAyNC0xMC0wMVQwMDowMDowMCswMzowMDwvRFQ+PHZhbD40MzYwMjU5NjQ2PC92YWw+PC9GREY+PC9GMTAyREFUQUZVTEw+PC9kaWZmZ3I6ZGlmZmdyYW0+PC9EYXRhMTAyRm9ybVJlc3VsdD48L0RhdGExMDJGb3JtUmVzcG9uc2U+PC9zb2FwOkJvZHk+PC9zb2FwOkVudmVsb3BlPg==
+  recorded_at: Tue, 04 Feb 2025 13:39:57 GMT
+recorded_with: VCR 6.3.1

@@ -3,6 +3,8 @@
 module Cbrf
   module Soap
     class Request
+      attr_reader :doc
+
       def initialize(name)
         @doc = Ox::Document.new << instruct
         @doc << (envelope << (Ox::Element.new("soap12:Body") << (@msg = Ox::Element.new(name))))

@@ -1,0 +1,93 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <Data803F xmlns="http://web.cbr.ru/">
+              <CredorgNumber>1481</CredorgNumber>
+              <Dt>2024-01-01</Dt>
+            </Data803F>
+          </soap12:Body>
+        </soap12:Envelope>
+    headers:
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.cbr.ru
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ddos-guard
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=60
+      Set-Cookie:
+      - __ddg10_=1738687897; Domain=.cbr.ru; Path=/; Expires=Tue, 04-Feb-2025 17:11:37
+        GMT
+      - __ddg1_=wRcwRCTkxWPeqaNOCZeI; Domain=.cbr.ru; HttpOnly; Path=/; Expires=Wed,
+        04-Feb-2026 16:51:37 GMT
+      - __ddg8_=SCFnMjRVh06DALjQ; Domain=.cbr.ru; Path=/; Expires=Tue, 04-Feb-2025
+        17:11:37 GMT
+      - __ddg9_=91.193.178.224; Domain=.cbr.ru; Path=/; Expires=Tue, 04-Feb-2025 17:11:37
+        GMT
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Content-Length:
+      - '2236'
+      Date:
+      - Tue, 04 Feb 2025 16:51:37 GMT
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><Data803FResponse
+        xmlns="http://web.cbr.ru/"><Data803FResult><xs:schema id="F803" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"><xs:element name="F803"
+        msdata:IsDataSet="true" msdata:UseCurrentLocale="true"><xs:complexType><xs:choice
+        minOccurs="0" maxOccurs="unbounded"><xs:element name="F803"><xs:complexType><xs:sequence><xs:element
+        name="fstr" type="xs:string" minOccurs="0" /><xs:element name="numerik" type="xs:decimal"
+        minOccurs="0" /><xs:element name="fsum" type="xs:decimal" minOccurs="0" /><xs:element
+        name="korr_m" type="xs:decimal" minOccurs="0" /><xs:element name="korr_p"
+        type="xs:decimal" minOccurs="0" /><xs:element name="vsego" type="xs:decimal"
+        minOccurs="0" /><xs:element name="tip_uch" type="xs:string" minOccurs="0"
+        /><xs:element name="frazd" type="xs:string" minOccurs="0" /></xs:sequence></xs:complexType></xs:element><xs:element
+        name="F8031"><xs:complexType><xs:sequence><xs:element name="numerik" type="xs:decimal"
+        minOccurs="0" /><xs:element name="tip_uch" type="xs:string" minOccurs="0"
+        /></xs:sequence></xs:complexType></xs:element><xs:element name="F8032"><xs:complexType><xs:sequence><xs:element
+        name="uc" type="xs:int" minOccurs="0" /><xs:element name="ucname" type="xs:string"
+        minOccurs="0" /></xs:sequence></xs:complexType></xs:element><xs:element name="F8033"><xs:complexType><xs:sequence><xs:element
+        name="fdate" type="xs:int" minOccurs="0" /><xs:element name="fsort" type="xs:decimal"
+        minOccurs="0" /><xs:element name="frazd" type="xs:string" minOccurs="0" /><xs:element
+        name="fsection" type="xs:string" minOccurs="0" /><xs:element name="fstr" type="xs:string"
+        minOccurs="0" /><xs:element name="fvalue" type="xs:string" minOccurs="0" /></xs:sequence></xs:complexType></xs:element></xs:choice></xs:complexType></xs:element></xs:schema><diffgr:diffgram
+        xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1"
+        /></Data803FResult></Data803FResponse></soap:Body></soap:Envelope>
+  recorded_at: Tue, 04 Feb 2025 16:51:37 GMT
+recorded_with: VCR 6.3.1

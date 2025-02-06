@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <GetF805Data xmlns="http://web.cbr.ru/">
+              <CredorgNumber>1481</CredorgNumber>
+              <dateTime>2024-07-01</dateTime>
+              <par>1</par>
+            </GetF805Data>
+          </soap12:Body>
+        </soap12:Envelope>
+    headers:
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.cbr.ru
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ddos-guard
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=60
+      Set-Cookie:
+      - __ddg10_=1738846381; Domain=.cbr.ru; Path=/; Expires=Thu, 06-Feb-2025 13:13:01
+        GMT
+      - __ddg1_=CDqCU8dIKp3XuaJYFy2t; Domain=.cbr.ru; HttpOnly; Path=/; Expires=Fri,
+        06-Feb-2026 12:53:01 GMT
+      - __ddg8_=LCN3VR10Zk9GOhDL; Domain=.cbr.ru; Path=/; Expires=Thu, 06-Feb-2025
+        13:13:01 GMT
+      - __ddg9_=62.213.99.14; Domain=.cbr.ru; Path=/; Expires=Thu, 06-Feb-2025 13:13:01
+        GMT
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Content-Length:
+      - '2005'
+      Date:
+      - Thu, 06 Feb 2025 12:53:01 GMT
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><GetF805DataResponse
+        xmlns="http://web.cbr.ru/"><GetF805DataResult><xs:schema id="F805" xmlns=""
+        xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"><xs:element
+        name="F805" msdata:IsDataSet="true" msdata:UseCurrentLocale="true"><xs:complexType><xs:choice
+        minOccurs="0" maxOccurs="unbounded"><xs:element name="F805"><xs:complexType><xs:sequence><xs:element
+        name="RowNumber" type="xs:string" minOccurs="0" /><xs:element name="MemberId"
+        type="xs:int" minOccurs="0" /><xs:element name="Val" type="xs:decimal" minOccurs="0"
+        /></xs:sequence></xs:complexType></xs:element><xs:element name="F8051"><xs:complexType><xs:sequence><xs:element
+        name="RowNumber" type="xs:string" minOccurs="0" /><xs:element name="Adj" type="xs:decimal"
+        minOccurs="0" /><xs:element name="Total" type="xs:decimal" minOccurs="0" /></xs:sequence></xs:complexType></xs:element><xs:element
+        name="F8052"><xs:complexType><xs:sequence><xs:element name="MemberId" type="xs:int"
+        minOccurs="0" /><xs:element name="MemberType" type="xs:string" minOccurs="0"
+        /></xs:sequence></xs:complexType></xs:element><xs:element name="F8053"><xs:complexType><xs:sequence><xs:element
+        name="MemberId" type="xs:int" minOccurs="0" /><xs:element name="MemberName"
+        type="xs:string" minOccurs="0" /></xs:sequence></xs:complexType></xs:element><xs:element
+        name="F8054"><xs:complexType><xs:sequence><xs:element name="fstr" type="xs:string"
+        minOccurs="0" /><xs:element name="fvalue" type="xs:string" minOccurs="0" /></xs:sequence></xs:complexType></xs:element></xs:choice></xs:complexType></xs:element></xs:schema><diffgr:diffgram
+        xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1"
+        /></GetF805DataResult></GetF805DataResponse></soap:Body></soap:Envelope>
+  recorded_at: Thu, 06 Feb 2025 12:53:01 GMT
+recorded_with: VCR 6.3.1

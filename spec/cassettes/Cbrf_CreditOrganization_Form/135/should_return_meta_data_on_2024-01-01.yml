@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+          <soap12:Body>
+            <Data135MetaFull xmlns="http://web.cbr.ru/">
+              <CredorgNumber>1481</CredorgNumber>
+              <OnDate>2024-01-01</OnDate>
+            </Data135MetaFull>
+          </soap12:Body>
+        </soap12:Envelope>
+    headers:
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - www.cbr.ru
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - ddos-guard
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=60
+      Set-Cookie:
+      - __ddg10_=1738686720; Domain=.cbr.ru; Path=/; Expires=Tue, 04-Feb-2025 16:52:00
+        GMT
+      - __ddg1_=g4jInesrcrozGtqMo72t; Domain=.cbr.ru; HttpOnly; Path=/; Expires=Wed,
+        04-Feb-2026 16:32:00 GMT
+      - __ddg8_=9UFzXb6lMf6JTKSZ; Domain=.cbr.ru; Path=/; Expires=Tue, 04-Feb-2025
+        16:52:00 GMT
+      - __ddg9_=91.193.178.224; Domain=.cbr.ru; Path=/; Expires=Tue, 04-Feb-2025 16:52:00
+        GMT
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Content-Length:
+      - '2539'
+      Date:
+      - Tue, 04 Feb 2025 16:32:00 GMT
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c29hcDpFbnZlbG9wZSB4bWxuczpzb2FwPSJodHRwOi8vd3d3LnczLm9yZy8yMDAzLzA1L3NvYXAtZW52ZWxvcGUiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiPjxzb2FwOkJvZHk+PERhdGExMzVNZXRhRnVsbFJlc3BvbnNlIHhtbG5zPSJodHRwOi8vd2ViLmNici5ydS8iPjxEYXRhMTM1TWV0YUZ1bGxSZXN1bHQ+PHhzOnNjaGVtYSBpZD0iRjEzNU1ldGEiIHhtbG5zPSIiIHhtbG5zOnhzPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgeG1sbnM6bXNkYXRhPSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOnhtbC1tc2RhdGEiIHhtbG5zOm1zcHJvcD0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTp4bWwtbXNwcm9wIj48eHM6ZWxlbWVudCBuYW1lPSJGMTM1TWV0YSIgbXNkYXRhOklzRGF0YVNldD0idHJ1ZSIgbXNkYXRhOlVzZUN1cnJlbnRMb2NhbGU9InRydWUiIG1zcHJvcDpPbkRhdGU9IjIwMjQwMTAxIj48eHM6Y29tcGxleFR5cGU+PHhzOmNob2ljZSBtaW5PY2N1cnM9IjAiIG1heE9jY3Vycz0idW5ib3VuZGVkIj48eHM6ZWxlbWVudCBuYW1lPSJGTSI+PHhzOmNvbXBsZXhUeXBlPjx4czpzZXF1ZW5jZT48eHM6ZWxlbWVudCBuYW1lPSJyZWduIiB0eXBlPSJ4czppbnQiIG1pbk9jY3Vycz0iMCIgLz48eHM6ZWxlbWVudCBuYW1lPSJva2F0byIgdHlwZT0ieHM6c3RyaW5nIiBtaW5PY2N1cnM9IjAiIC8+PHhzOmVsZW1lbnQgbmFtZT0ib2twbyIgdHlwZT0ieHM6c3RyaW5nIiBtaW5PY2N1cnM9IjAiIC8+PHhzOmVsZW1lbnQgbmFtZT0ib2dybiIgdHlwZT0ieHM6c3RyaW5nIiBtaW5PY2N1cnM9IjAiIC8+PHhzOmVsZW1lbnQgbmFtZT0icmVnbnR4dCIgdHlwZT0ieHM6c3RyaW5nIiBtaW5PY2N1cnM9IjAiIC8+PHhzOmVsZW1lbnQgbmFtZT0iYmlrIiB0eXBlPSJ4czpzdHJpbmciIG1pbk9jY3Vycz0iMCIgLz48eHM6ZWxlbWVudCBuYW1lPSJmZGF0ZSIgdHlwZT0ieHM6ZGF0ZVRpbWUiIG1pbk9jY3Vycz0iMCIgLz48eHM6ZWxlbWVudCBuYW1lPSJjbmFtZSIgdHlwZT0ieHM6c3RyaW5nIiBtaW5PY2N1cnM9IjAiIC8+PHhzOmVsZW1lbnQgbmFtZT0icGFkZHIiIHR5cGU9InhzOnN0cmluZyIgbWluT2NjdXJzPSIwIiAvPjx4czplbGVtZW50IG5hbWU9ImhlYWRwIiB0eXBlPSJ4czpzdHJpbmciIG1pbk9jY3Vycz0iMCIgLz48eHM6ZWxlbWVudCBuYW1lPSJoZWFkbiIgdHlwZT0ieHM6c3RyaW5nIiBtaW5PY2N1cnM9IjAiIC8+PHhzOmVsZW1lbnQgbmFtZT0iYWNwIiB0eXBlPSJ4czpzdHJpbmciIG1pbk9jY3Vycz0iMCIgLz48eHM6ZWxlbWVudCBuYW1lPSJhY24iIHR5cGU9InhzOnN0cmluZyIgbWluT2NjdXJzPSIwIiAvPjx4czplbGVtZW50IG5hbWU9InJlcHAiIHR5cGU9InhzOnN0cmluZyIgbWluT2NjdXJzPSIwIiAvPjx4czplbGVtZW50IG5hbWU9InJlcG4iIHR5cGU9InhzOnN0cmluZyIgbWluT2NjdXJzPSIwIiAvPjx4czplbGVtZW50IG5hbWU9InRlbHMiIHR5cGU9InhzOnN0cmluZyIgbWluT2NjdXJzPSIwIiAvPjx4czplbGVtZW50IG5hbWU9Im9kbnVtIiB0eXBlPSJ4czpzaG9ydCIgbWluT2NjdXJzPSIwIiAvPjx4czplbGVtZW50IG5hbWU9InByaXpwIiB0eXBlPSJ4czp1bnNpZ25lZEJ5dGUiIG1pbk9jY3Vycz0iMCIgLz48eHM6ZWxlbWVudCBuYW1lPSJGUk1UeXBlIiB0eXBlPSJ4czppbnQiIG1pbk9jY3Vycz0iMCIgLz48L3hzOnNlcXVlbmNlPjwveHM6Y29tcGxleFR5cGU+PC94czplbGVtZW50PjwveHM6Y2hvaWNlPjwveHM6Y29tcGxleFR5cGU+PC94czplbGVtZW50PjwveHM6c2NoZW1hPjxkaWZmZ3I6ZGlmZmdyYW0geG1sbnM6bXNkYXRhPSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOnhtbC1tc2RhdGEiIHhtbG5zOmRpZmZncj0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTp4bWwtZGlmZmdyYW0tdjEiPjxGMTM1TWV0YSB4bWxucz0iIj48Rk0gZGlmZmdyOmlkPSJGTTEiIG1zZGF0YTpyb3dPcmRlcj0iMCI+PHJlZ24+MTQ4MTwvcmVnbj48b2thdG8+NDU8L29rYXRvPjxva3BvPjAwMDMyNTM3PC9va3BvPjxvZ3JuPjEwMjc3MDAxMzIxOTU8L29ncm4+PHJlZ250eHQ+MTQ4MTwvcmVnbnR4dD48ZmRhdGU+MjAyNC0wMS0wMVQwMDowMDowMCswMzowMDwvZmRhdGU+PGNuYW1lPtCf0JDQniDQodCx0LXRgNCx0LDQvdC6PC9jbmFtZT48cGFkZHI+0KDQvtGB0YHQuNC50YHQutCw0Y8g0KTQtdC00LXRgNCw0YbQuNGPLCDQs9C+0YDQvtC0INCc0L7RgdC60LLQsCwg0YPQu9C40YbQsCDQktCw0LLQuNC70L7QstCwLCDQtNC+0LwgMTk8L3BhZGRyPjxvZG51bT4zMTwvb2RudW0+PHByaXpwPjE8L3ByaXpwPjxGUk1UeXBlPjI8L0ZSTVR5cGU+PC9GTT48L0YxMzVNZXRhPjwvZGlmZmdyOmRpZmZncmFtPjwvRGF0YTEzNU1ldGFGdWxsUmVzdWx0PjwvRGF0YTEzNU1ldGFGdWxsUmVzcG9uc2U+PC9zb2FwOkJvZHk+PC9zb2FwOkVudmVsb3BlPg==
+  recorded_at: Tue, 04 Feb 2025 16:32:00 GMT
+recorded_with: VCR 6.3.1
