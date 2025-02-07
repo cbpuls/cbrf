@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "ox", "~> 2.4.19"
-  spec.add_dependency "ox", "2.14.0"
+  spec.add_dependency "ox", "2.14.21"
   spec.add_dependency "zeitwerk", "~> 2.7.0"
 
   # For more information and examples about making a new gem, check out our

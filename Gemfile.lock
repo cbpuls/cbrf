@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     cbrf (0.1.0)
+      ox (= 2.14.21)
       zeitwerk (~> 2.7.0)
 
 GEM
