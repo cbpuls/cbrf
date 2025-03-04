@@ -28,7 +28,27 @@ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
 
 ## Usage
 
-TODO: Write usage instructions here
+### Credit
+
+include Cbrf::Credit
+
+sberbank_bic = "044525225"
+sberbank_internal_code = 350_000_004
+sberbank_registry_no = 1481
+
+id = Id.new(sberbank_bic)
+id = Id.new(sberbank_internal_code)
+id = Id.new(sberbank_registry_no)
+id = Id.new(internal_code: sberbank_internal_code, registry_no: sberbank_registry_no, bic: sberbank_bic)
+
+id.internal_code # => 350_000_004
+id.registry_no # => 1481
+ids = Id.all # Return all organizations with BIC
+
+include Cbrf::Credit
+
+Organization.find("044525225") # Return full information by Sberbank
+Organization.find("044525225", 1000) # Return full info about sberbank and vtb
 
 ## Development
 

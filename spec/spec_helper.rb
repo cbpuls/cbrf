@@ -11,15 +11,17 @@ VCR.configure do |c|
 end
 
 module Cbrf
-  RSpec.shared_context "banks", shared_context: :metadata do
-    let(:sber) do
-      CreditOrganization::Id.new(bic: "044525225", internal_code: "350_000_004", registry_number: 1481)
-    end
-    let(:alfa) do
-      CreditOrganization::Id.new(bic: "044525593", internal_code: "450_000_036", registry_number: 1326)
-    end
-    let(:vtb) do
-      CreditOrganization::Id.new(bic: "044525187", internal_code: "350_000_008", registry_number: 1000)
+  module Credit
+    RSpec.shared_context "banks", shared_context: :metadata do
+      let(:sber) do
+        Id.new(bic: "044525225", internal_code: 350_000_004, registry_no: 1481)
+      end
+      let(:alfa) do
+        Id.new(bic: "044525593", internal_code: 450_000_036, registry_no: 1326)
+      end
+      let(:vtb) do
+        Id.new(bic: "044525187", internal_code: 350_000_008, registry_no: 1000)
+      end
     end
   end
 
