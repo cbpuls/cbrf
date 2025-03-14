@@ -12,6 +12,32 @@ end
 
 module Cbrf
   module Credit
+    RSpec.shared_context "credit organizations", shared_context: :metadata do
+      let(:sber) do
+        Organization.new(id: 350_000_004, bic: "044525225", ogrn: 1_027_700_132_195,
+                         registry_no: 1481, name: "СБЕРБАНК")
+      end
+
+      let(:alfa) do
+        Organization.new(id: 450_000_036, bic: "044525593", ogrn: 1_027_700_067_328, registry_no: 1326,
+                         # registered_on: DateTime.xmlschema("1991-01-03T00:00:00+03:00"),
+                         name: "АЛЬФА-БАНК")
+      end
+
+      let(:yandex) do
+        Organization.new(id: 450_000_804, bic: "044525677", ogrn: 1_077_711_000_091, registry_no: 3027,
+                         # registered_on: DateTime.xmlschema("1994-08-04T00:00:00+04:00"),
+                         name: "ЯНДЕКС")
+      end
+
+      let(:ozon) do
+        Organization.new(id: 512_056_749, bic: "044525068", ogrn: 1_227_700_133_792,
+                         registry_no: 3542,
+                         # registered_on: DateTime.xmlschema("2022-03-11T00:00:00+03:00"),
+                         name: "ОЗОН БАНК")
+      end
+    end
+
     RSpec.shared_context "banks", shared_context: :metadata do
       let(:sber) do
         Id.new(bic: "044525225", internal_code: 350_000_004, registry_no: 1481)
@@ -41,6 +67,8 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.include_context "credit organizations", credit: :banks
 
   config.include_context "banks", with_banks: true
   config.include_context "regions", with_regions: true

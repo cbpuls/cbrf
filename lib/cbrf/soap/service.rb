@@ -19,7 +19,7 @@ module Cbrf
         when Net::HTTPSuccess
           Response.new(name, res.body)
         else
-          res.value
+          res.body
         end
       end
     end

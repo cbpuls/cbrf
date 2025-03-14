@@ -23,13 +23,17 @@ module Cbrf
         Ox.load(xml, mode: :hash_no_attrs)
       end
 
-      def diff
-        @diff ||= to_h.dig(:"soap:Envelope", :"soap:Body", :"#{name}Response", :"#{name}Result", :"diffgr:diffgram")
+      def dataset
+        @dataset ||= to_h.dig(:"soap:Envelope", :"soap:Body", :"#{name}Response", :"#{name}Result", :"diffgr:diffgram")
       end
 
       def result
-        @result ||= to_hash[:"soap:Envelope"].find { it.key?(:"soap:Body") }.dig(:"soap:Body", :"#{name}Response")
-                                             .find { it.key?(:"#{name}Result") }.dig(:"#{name}Result")
+        @result ||= to_h.dig(:"soap:Envelope", :"soap:Body", :"#{name}Response", :"#{name}Result")
+      end
+
+      def result_
+        @result_ ||= to_hash[:"soap:Envelope"].find { it.key?(:"soap:Body") }.dig(:"soap:Body", :"#{name}Response")
+                                              .find { it.key?(:"#{name}Result") }.dig(:"#{name}Result")
       end
 
       def value

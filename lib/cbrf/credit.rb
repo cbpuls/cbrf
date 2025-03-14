@@ -1,12 +1,23 @@
 # frozen_string_literal: true
 
 module Cbrf
+  # (Docs)[https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx]
   module Credit
     module_function
 
-    # Date last update credit organization database
+    # Date last update credit database
     def version
       DateTime.xmlschema Api.call(:LastUpdate).value
+    end
+
+    # Return all credit organizations with bics in hash format
+    def bics
+      Api.call(:EnumBIC).dataset.dig(:EnumBIC, :BIC)
+    end
+
+    # Return all regions in credit organizations database
+    def regions
+      Api.call(:EnumRegions).dataset.dig(:EnumRegions, :ER)
     end
   end
 end

@@ -4,6 +4,27 @@ module Cbrf
   module Conversions
     module_function
 
+    def Organization(code)
+      case code
+      when Credit::Organization
+        code
+      when String
+        Credit::Organization.new to_name_id(code) => code
+      when Integer
+        Credit::Organization.new to_name_id(code.to_s) => code
+      end
+    end
+
+    def to_name_id(code)
+      if code.start_with?("04")
+        :bic
+      elsif code.length <= 4
+        :registry_no
+      else
+        :id
+      end
+    end
+
     def Id(code)
       case code
       when CreditOrganization::Id
