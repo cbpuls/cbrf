@@ -53,6 +53,8 @@ module Cbrf
 
         # Full information about credit organization
         def find(*codes)
+          codes = codes.flatten.compact.uniq
+
           case codes.size
           when 0
             raise ArgumentError
