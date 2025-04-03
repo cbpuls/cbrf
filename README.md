@@ -30,8 +30,8 @@ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
 
 ### Credit
 
-include Cbrf::Credit
-
+Описание документации [ссылке](https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx)
+Для простоты весь последующий код будет использовать включение `include Cbrf::Credit`
 sberbank_bic = "044525225"
 sberbank_internal_code = 350_000_004
 sberbank_registry_no = 1481

@@ -3,6 +3,7 @@
 module Cbrf
   module Credit
     RSpec.describe Organization, :vcr, credit: :banks do
+      let(:org_all) { Organization.all }
       describe "#id" do
         it "if set bic" do
           expect(Organization.new(bic: sber.bic).id).to eq sber.id
@@ -24,7 +25,15 @@ module Cbrf
       end
 
       describe "#all" do
-        it { expect(Organization.all).to all be_a Organization }
+        it { expect(org_all).to all be_a Organization }
+      end
+
+      describe "#to_h" do
+        it {
+          expect(org_all.first.to_h).to eq({ id: 10_000_012, bic: "040173745", ogrn: 1_022_200_525_819,
+                                             registry_no: 2015,
+                                             name: "СИБСОЦБАНК" })
+        }
       end
 
       describe "#find" do
