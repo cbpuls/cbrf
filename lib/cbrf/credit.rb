@@ -7,7 +7,7 @@ module Cbrf
 
     # Date last update credit database
     def version
-      DateTime.xmlschema Api.call(:LastUpdate).value
+      Api.call(:LastUpdate).value
     end
 
     # Return all credit organizations with bics in hash format

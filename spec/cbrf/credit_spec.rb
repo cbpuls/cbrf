@@ -3,7 +3,7 @@
 module Cbrf
   RSpec.describe Credit, :vcr do
     describe "#version" do
-      it { expect(described_class.version).to eq DateTime.xmlschema "2025-02-28T23:46:25.263" }
+      it { expect(described_class.version).to eq "2025-04-18T00:20:37.62" }
     end
 
     describe "#bics" do

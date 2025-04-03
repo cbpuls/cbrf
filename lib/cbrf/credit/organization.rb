@@ -3,13 +3,13 @@
 module Cbrf
   module Credit
     class Organization
-      attr_reader :bic
+      attr_reader :bic, :ogrn, :name
 
       def initialize(id: nil, bic: nil, ogrn: nil, registry_no: nil, name: nil)
-        @id = id
+        @id = id&.to_i
         @bic = bic
-        @ogrn = ogrn
-        @registry_no = registry_no
+        @ogrn = ogrn&.to_i
+        @registry_no = registry_no&.to_i
         @name = name
       end
 
@@ -33,6 +33,11 @@ module Cbrf
         @full ||= Organization.find_one id
       end
 
+      # Transform instance to hash
+      def to_h
+        { id:, bic:, ogrn:, registry_no:, name: }
+      end
+
       class << self
         # Get all credit organizations with BIC
         def all
@@ -48,6 +53,8 @@ module Cbrf
 
         # Full information about credit organization
         def find(*codes)
+          codes = codes.flatten.compact.uniq
+
           case codes.size
           when 0
             raise ArgumentError
