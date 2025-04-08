@@ -52,6 +52,10 @@ module Cbrf
         it "should return info by all organization" do
           expect(described_class.find(org_all).keys).to eq finded_keys
         end
+
+        it "should return info by all ids" do
+          expect(described_class.find(org_all.map(&:id)).keys).to eq finded_keys
+        end
       end
 
       describe "#short" do
