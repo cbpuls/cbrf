@@ -21,7 +21,7 @@ module Cbrf
         name, key_for_date = params
         args = { CredorgNumber: organization.registry_no, key_for_date => date }
 
-        pp Api.call(name, args).dataset
+        Api.call(name, args).dataset
       end
 
       def dates

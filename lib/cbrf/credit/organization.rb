@@ -46,10 +46,10 @@ module Cbrf
           end
         end
 
-        def build(_code)
-          organization
-          Api.call(:CreditInfoByRegCodeShort, CredorgNumber: organization.registry_no)
-        end
+        # def build(_code)
+        #   organization
+        #   Api.call(:CreditInfoByRegCodeShort, CredorgNumber: organization.registry_no)
+        # end
 
         # Full information about credit organization
         def find(*codes)
