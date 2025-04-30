@@ -2,6 +2,7 @@
 
 require_relative "cbrf/version"
 
+require "open-uri"
 require "stringio"
 require "ox"
 require "zeitwerk"

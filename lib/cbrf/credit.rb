@@ -5,6 +5,10 @@ module Cbrf
   module Credit
     module_function
 
+    # def test
+    #   pp Api.call(:SearchByName, NamePart: "").to_h
+    # end
+
     # Date last update credit database
     def version
       Api.call(:LastUpdate).value

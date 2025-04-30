@@ -35,20 +35,20 @@ http_interactions:
       Keep-Alive:
       - timeout=60
       Set-Cookie:
-      - __ddg10_=1744993595; Domain=.cbr.ru; Path=/; Expires=Fri, 18-Apr-2025 16:46:35
+      - __ddg10_=1745336605; Domain=.cbr.ru; Path=/; Expires=Tue, 22-Apr-2025 16:03:25
         GMT
-      - __ddg1_=ueGSUDQ7biC2GtmbpLSv; Domain=.cbr.ru; HttpOnly; Path=/; Expires=Sat,
-        18-Apr-2026 16:26:35 GMT
-      - __ddg8_=pgOdwoKPq4z0TT6s; Domain=.cbr.ru; Path=/; Expires=Fri, 18-Apr-2025
-        16:46:35 GMT
-      - __ddg9_=62.213.99.14; Domain=.cbr.ru; Path=/; Expires=Fri, 18-Apr-2025 16:46:35
+      - __ddg1_=AogeqCSRgGyxOCmtzqch; Domain=.cbr.ru; HttpOnly; Path=/; Expires=Wed,
+        22-Apr-2026 15:43:25 GMT
+      - __ddg8_=LgyAIhGCxH643N4f; Domain=.cbr.ru; Path=/; Expires=Tue, 22-Apr-2025
+        16:03:25 GMT
+      - __ddg9_=62.213.99.14; Domain=.cbr.ru; Path=/; Expires=Tue, 22-Apr-2025 16:03:25
         GMT
       Content-Type:
       - application/soap+xml; charset=utf-8
       Content-Length:
       - '371'
       Date:
-      - Fri, 18 Apr 2025 16:26:35 GMT
+      - Tue, 22 Apr 2025 15:43:25 GMT
       Cache-Control:
       - no-cache
       Pragma:
@@ -61,6 +61,6 @@ http_interactions:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><LastUpdateResponse
-        xmlns="http://web.cbr.ru/"><LastUpdateResult>2025-04-18T00:20:37.62</LastUpdateResult></LastUpdateResponse></soap:Body></soap:Envelope>
-  recorded_at: Fri, 18 Apr 2025 16:26:35 GMT
+        xmlns="http://web.cbr.ru/"><LastUpdateResult>2025-04-21T23:45:50.58</LastUpdateResult></LastUpdateResponse></soap:Body></soap:Envelope>
+  recorded_at: Tue, 22 Apr 2025 15:43:25 GMT
 recorded_with: VCR 6.3.1

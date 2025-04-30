@@ -35,6 +35,8 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "ox", "~> 2.4.19"
+  spec.add_dependency "dbf", "~> 4.3"
+  spec.add_dependency "ffi-libarchive", "~> 1.1.14"
   spec.add_dependency "ox", "2.14.21"
   spec.add_dependency "zeitwerk", "~> 2.7.0"
 

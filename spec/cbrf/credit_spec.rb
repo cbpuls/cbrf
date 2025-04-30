@@ -2,8 +2,12 @@
 
 module Cbrf
   RSpec.describe Credit, :vcr do
+    # describe "#test" do
+    #   it { expect(described_class.test).to eq 1 }
+    # end
+
     describe "#version" do
-      it { expect(described_class.version).to eq "2025-04-18T00:20:37.62" }
+      it { expect(described_class.version).to eq "2025-04-21T23:45:50.58" }
     end
 
     describe "#bics" do
