@@ -13,6 +13,7 @@ module Cbrf
       def initialize(code, date)
         @code = code.to_i
         @date = date
+        @buffer = {}
       end
 
       def rar
@@ -21,18 +22,34 @@ module Cbrf
 
       def rar_url = "#{BASE_URL}/#{code}-#{date.strftime("%Y%m%d")}.rar"
 
-      def data
-        reader = Archive::Reader.open_filename rar.path
+      def reader
+        @reader ||= Archive::Reader.open_filename rar.path
+      end
 
+      def buffer
+        parse if @buffer.empty?
+        @buffer
+      end
+
+      def parse
         reader.each_entry_with_data do |entry, data|
-          pp entry.pathname
-          items = DBF::Table.new(StringIO.new(data), nil, "cp866")
-          items.each do |record|
-            pp record.name
-            pp record.num_sc
-          end
+          @buffer[entry.pathname] = DBF::Table.new(StringIO.new(data), nil, "cp866")
         end
+
         reader.close
+      end
+
+      def data
+        pp buffer.keys
+        buffer["B1.DBF"]
+      end
+
+      def organizations
+        buffer[""]
+      end
+
+      def indicators
+        buffer[""]
       end
     end
   end
