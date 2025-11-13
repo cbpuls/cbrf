@@ -12,6 +12,7 @@ loader.setup
 
 module Cbrf
   class Error < StandardError; end
+  class NotFound < StandardError; end
   # Your code goes here...
 end
 

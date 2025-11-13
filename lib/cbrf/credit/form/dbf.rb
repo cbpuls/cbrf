@@ -10,28 +10,25 @@ module Cbrf
       BASE_URL = "https://www.cbr.ru/vfs/credit/forms"
       attr_reader :code, :date
 
-      def initialize(code, date)
+      def initialize(code)
         @code = code.to_i
-        @date = date
         @buffer = {}
       end
 
-      def rar
-        @rar ||= URI.parse(rar_url).open
+      def on(date)
+        tap do
+          @date = date << 1
+          parse(date) if date
+        end
       end
 
-      def rar_url = "#{BASE_URL}/#{code}-#{date.strftime("%Y%m%d")}.rar"
+      def parse(date)
+        url = "#{BASE_URL}/#{code}-#{date.strftime("%Y%m%d")}.rar"
+        archive = rar(url)
+        return if archive.nil?
 
-      def reader
-        @reader ||= Archive::Reader.open_filename rar.path
-      end
+        reader = Archive::Reader.open_filename rar(url).path
 
-      def buffer
-        parse if @buffer.empty?
-        @buffer
-      end
-
-      def parse
         reader.each_entry_with_data do |entry, data|
           @buffer[entry.pathname] = DBF::Table.new(StringIO.new(data), nil, "cp866")
         end
@@ -39,17 +36,41 @@ module Cbrf
         reader.close
       end
 
+      def rar(url)
+        URI.parse(url).open
+      rescue OpenURI::HTTPError
+        nil
+      end
+
       def data
-        pp buffer.keys
-        buffer["B1.DBF"]
+        pp @buffer.keys
+        @buffer[data_key]
+      end
+
+      def data_key
+        case code
+        when 101 then date.strftime("%m%Y") + "B1.dbf"
+        end
       end
 
       def organizations
-        buffer[""]
+        @buffer[organizations_key]
+      end
+
+      def organizations_key
+        case code
+        when 101 then date.strftime("%m%Y") + "N1.dbf"
+        end
       end
 
       def indicators
-        buffer[""]
+        @buffer[indicators_key]
+      end
+
+      def indicators_key
+        case code
+        when 101 then "NAMES.dbf"
+        end
       end
     end
   end
