@@ -20,7 +20,7 @@ module Cbrf
         context "unknown date" do
           let(:date) { Date.new 3000, 1, 1 }
 
-          it { expect(data).to be_nil }
+          it { expect { data }.to raise_error Cbrf::NotFound }
         end
       end
     end

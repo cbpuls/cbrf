@@ -37,13 +37,12 @@ module Cbrf
       end
 
       def rar(url)
-        URI.parse(url).open
-      rescue OpenURI::HTTPError
-        nil
+        URI.parse(url).open(open_timeout: 1, read_timeout: 1)
+      rescue OpenURI::HTTPError => e
+        raise Cbrf::NotFound.new(e.message) if e.message == "404 Not Found"
       end
 
       def data
-        pp @buffer.keys
         @buffer[data_key]
       end
 
